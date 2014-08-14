@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6162" systemVersion="14A238h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qbD-gE-r7O">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6160"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="CoffeeJourneyProto" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -21,5 +21,127 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Main Menu Table View Controller-->
+        <scene sceneID="20M-fu-wqd">
+            <objects>
+                <tableViewController id="kgl-F7-KkL" customClass="MainMenuTableViewController" customModule="CoffeeJourneyProto" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bva-DZ-wgU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jsu-NO-NMb">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jsu-NO-NMb" id="bxB-oD-3DI">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kgl-F7-KkL" id="nMW-qy-LIQ"/>
+                            <outlet property="delegate" destination="kgl-F7-KkL" id="G04-ag-vML"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="6bv-WA-Cu1"/>
+                    <connections>
+                        <segue destination="eYX-97-9xd" kind="show" identifier="showSearchConditionSegue" id="5mI-qh-8le"/>
+                        <segue destination="72Q-O1-plP" kind="show" identifier="showJourneyLogEditorSegue" id="2kG-rR-GNn"/>
+                        <segue destination="bUF-qX-gin" kind="show" identifier="showSearchResultSegue" id="CIE-fm-igA"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kha-g6-8lh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1100" y="953"/>
+        </scene>
+        <!--Search Condition View Controller-->
+        <scene sceneID="75N-jo-uaY">
+            <objects>
+                <viewController id="eYX-97-9xd" customClass="SearchConditionViewController" customModule="CoffeeJourneyProto" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C0X-Ks-tnf"/>
+                        <viewControllerLayoutGuide type="bottom" id="CdS-zH-gKR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EPX-1A-iTG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="bUF-qX-gin" kind="show" identifier="showSearchResultSegue" id="C9T-60-yY8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="feW-mF-Egu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1807" y="555"/>
+        </scene>
+        <!--Search Result Table View Controller-->
+        <scene sceneID="JiC-hX-EuM">
+            <objects>
+                <tableViewController id="bUF-qX-gin" customClass="SearchResultTableViewController" customModule="CoffeeJourneyProto" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="XAf-Wl-a9T">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="LPf-Lw-JPl">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LPf-Lw-JPl" id="dAz-gw-c8Z">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bUF-qX-gin" id="gVt-CZ-ITn"/>
+                            <outlet property="delegate" destination="bUF-qX-gin" id="5Da-NO-LSy"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="72Q-O1-plP" kind="show" identifier="showJourneyLogEditorSegue" id="oKE-ho-v9v"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6iP-mm-WCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2512" y="953"/>
+        </scene>
+        <!--Journey Log Editor View Controller-->
+        <scene sceneID="QJ9-UK-PuK">
+            <objects>
+                <viewController id="72Q-O1-plP" customClass="JourneyLogEditorViewController" customModule="CoffeeJourneyProto" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rzy-q2-e3l"/>
+                        <viewControllerLayoutGuide type="bottom" id="ugm-oD-yY8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rwR-c4-Aaj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vhd-xV-DI4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1807" y="1700"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Swv-5w-32Z">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qbD-gE-r7O" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iso-DY-Vtj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kgl-F7-KkL" kind="relationship" relationship="rootViewController" id="Ycb-gp-YLp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ymf-LI-Ztc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="288" y="953"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="CIE-fm-igA"/>
+        <segue reference="2kG-rR-GNn"/>
+    </inferredMetricsTieBreakers>
 </document>

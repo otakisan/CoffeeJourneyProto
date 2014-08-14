@@ -14,6 +14,10 @@
 		160595FF199C9D6D004F5978 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 160595FE199C9D6D004F5978 /* Images.xcassets */; };
 		1605960B199C9D6E004F5978 /* CoffeeJourneyProtoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605960A199C9D6E004F5978 /* CoffeeJourneyProtoTests.swift */; };
 		16059617199CA956004F5978 /* CoffeeMemoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16059616199CA956004F5978 /* CoffeeMemoEntity.swift */; };
+		1605961A199CAD43004F5978 /* MainMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16059619199CAD43004F5978 /* MainMenuTableViewController.swift */; };
+		1605961C199CAF65004F5978 /* SearchConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605961B199CAF65004F5978 /* SearchConditionViewController.swift */; };
+		1605961E199CB118004F5978 /* JourneyLogEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605961D199CB118004F5978 /* JourneyLogEditorViewController.swift */; };
+		16059620199CB269004F5978 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605961F199CB269004F5978 /* SearchResultTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +43,10 @@
 		1605960A199C9D6E004F5978 /* CoffeeJourneyProtoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeJourneyProtoTests.swift; sourceTree = "<group>"; };
 		16059615199CA956004F5978 /* CoffeeJourneyProto-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoffeeJourneyProto-Bridging-Header.h"; sourceTree = "<group>"; };
 		16059616199CA956004F5978 /* CoffeeMemoEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMemoEntity.swift; sourceTree = "<group>"; };
+		16059619199CAD43004F5978 /* MainMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuTableViewController.swift; sourceTree = "<group>"; };
+		1605961B199CAF65004F5978 /* SearchConditionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchConditionViewController.swift; sourceTree = "<group>"; };
+		1605961D199CB118004F5978 /* JourneyLogEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JourneyLogEditorViewController.swift; sourceTree = "<group>"; };
+		1605961F199CB269004F5978 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,7 @@
 		160595F1199C9D6D004F5978 /* CoffeeJourneyProto */ = {
 			isa = PBXGroup;
 			children = (
+				16059618199CAAA6004F5978 /* Views */,
 				16059614199CA744004F5978 /* Entities */,
 				160595F4199C9D6D004F5978 /* AppDelegate.swift */,
 				160595F9199C9D6D004F5978 /* ViewController.swift */,
@@ -123,6 +132,17 @@
 				16059615199CA956004F5978 /* CoffeeJourneyProto-Bridging-Header.h */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		16059618199CAAA6004F5978 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				16059619199CAD43004F5978 /* MainMenuTableViewController.swift */,
+				1605961B199CAF65004F5978 /* SearchConditionViewController.swift */,
+				1605961D199CB118004F5978 /* JourneyLogEditorViewController.swift */,
+				1605961F199CB269004F5978 /* SearchResultTableViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,8 +245,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				16059617199CA956004F5978 /* CoffeeMemoEntity.swift in Sources */,
+				1605961E199CB118004F5978 /* JourneyLogEditorViewController.swift in Sources */,
 				160595FA199C9D6D004F5978 /* ViewController.swift in Sources */,
+				1605961A199CAD43004F5978 /* MainMenuTableViewController.swift in Sources */,
+				16059620199CB269004F5978 /* SearchResultTableViewController.swift in Sources */,
 				160595F5199C9D6D004F5978 /* AppDelegate.swift in Sources */,
+				1605961C199CAF65004F5978 /* SearchConditionViewController.swift in Sources */,
 				160595F8199C9D6D004F5978 /* CoffeeJourneyProto.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
