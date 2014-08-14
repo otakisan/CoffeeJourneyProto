@@ -13,6 +13,7 @@
 		160595FD199C9D6D004F5978 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 160595FB199C9D6D004F5978 /* Main.storyboard */; };
 		160595FF199C9D6D004F5978 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 160595FE199C9D6D004F5978 /* Images.xcassets */; };
 		1605960B199C9D6E004F5978 /* CoffeeJourneyProtoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605960A199C9D6E004F5978 /* CoffeeJourneyProtoTests.swift */; };
+		16059617199CA956004F5978 /* CoffeeMemoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16059616199CA956004F5978 /* CoffeeMemoEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,8 @@
 		16059604199C9D6E004F5978 /* CoffeeJourneyProtoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeeJourneyProtoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16059609199C9D6E004F5978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1605960A199C9D6E004F5978 /* CoffeeJourneyProtoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeJourneyProtoTests.swift; sourceTree = "<group>"; };
+		16059615199CA956004F5978 /* CoffeeJourneyProto-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoffeeJourneyProto-Bridging-Header.h"; sourceTree = "<group>"; };
+		16059616199CA956004F5978 /* CoffeeMemoEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMemoEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,7 @@
 		160595F1199C9D6D004F5978 /* CoffeeJourneyProto */ = {
 			isa = PBXGroup;
 			children = (
+				16059614199CA744004F5978 /* Entities */,
 				160595F4199C9D6D004F5978 /* AppDelegate.swift */,
 				160595F9199C9D6D004F5978 /* ViewController.swift */,
 				160595FB199C9D6D004F5978 /* Main.storyboard */,
@@ -110,6 +114,15 @@
 				16059609199C9D6E004F5978 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		16059614199CA744004F5978 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				16059616199CA956004F5978 /* CoffeeMemoEntity.swift */,
+				16059615199CA956004F5978 /* CoffeeJourneyProto-Bridging-Header.h */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16059617199CA956004F5978 /* CoffeeMemoEntity.swift in Sources */,
 				160595FA199C9D6D004F5978 /* ViewController.swift in Sources */,
 				160595F5199C9D6D004F5978 /* AppDelegate.swift in Sources */,
 				160595F8199C9D6D004F5978 /* CoffeeJourneyProto.xcdatamodeld in Sources */,
@@ -329,9 +343,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CoffeeJourneyProto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CoffeeJourneyProto/Entities/CoffeeJourneyProto-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -340,9 +357,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = CoffeeJourneyProto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CoffeeJourneyProto/Entities/CoffeeJourneyProto-Bridging-Header.h";
 			};
 			name = Release;
 		};
