@@ -10,6 +10,17 @@ import UIKit
 
 class SearchConditionViewController: UIViewController {
 
+    @IBOutlet weak var memoIdTextField: UITextField!
+    @IBOutlet weak var fromTastingDateTextField: UITextField!
+    @IBOutlet weak var toTastingDateTextField: UITextField!
+    @IBOutlet weak var brewingMethodTextField: UITextField!
+    @IBOutlet weak var beanNameTextField: UITextField!
+    @IBOutlet weak var commentTextField: UITextField!
+    
+    @IBAction func searchButtonTouchedUpInside(sender: AnyObject) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

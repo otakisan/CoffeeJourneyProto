@@ -132,6 +132,9 @@
                                 <state key="normal" title="Search">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="searchButtonTouchedUpInside:" destination="eYX-97-9xd" eventType="touchUpInside" id="D4K-Xm-YpV"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N69-Jt-Qjn">
                                 <rect key="frame" x="114" y="258" width="200" height="30"/>
@@ -142,6 +145,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="beanNameTextField" destination="jYZ-At-2dv" id="To4-1m-iGn"/>
+                        <outlet property="brewingMethodTextField" destination="jrS-wp-xcY" id="fd1-Vm-MTc"/>
+                        <outlet property="commentTextField" destination="N69-Jt-Qjn" id="iQm-61-oh4"/>
+                        <outlet property="fromTastingDateTextField" destination="euk-O8-sp5" id="bUN-Bl-3Xe"/>
+                        <outlet property="memoIdTextField" destination="JVJ-bE-vZv" id="sCa-VZ-s1f"/>
+                        <outlet property="toTastingDateTextField" destination="zvZ-2m-LHM" id="TLW-V6-toN"/>
                         <segue destination="bUF-qX-gin" kind="show" identifier="showSearchResultSegue" id="C9T-60-yY8"/>
                     </connections>
                 </viewController>
