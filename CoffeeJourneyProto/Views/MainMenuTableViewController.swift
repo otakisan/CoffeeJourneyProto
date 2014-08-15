@@ -150,7 +150,8 @@ class MainMenuTableViewController: UITableViewController, UITableViewDelegate, U
     private func prepareForNewEntry(segue: UIStoryboardSegue!, sender: AnyObject!){
         var vc = segue.destinationViewController as JourneyLogEditorViewController
         
-        vc.title = " new called!"
+        vc.title = "New Journey Log"
+        //vc.memoId = "testmemoId_20140815_195509.925" // 検索結果画面からの遷移時はID指定で呼び出す
     }
 
 

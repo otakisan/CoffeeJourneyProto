@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 class JourneyLogEditorViewController: UIViewController {
+    
+    var memoId : String?
 
     @IBOutlet weak var memoIdTextField: UITextField!
     @IBOutlet weak var tastingDateTextField: UITextField!
@@ -23,7 +25,8 @@ class JourneyLogEditorViewController: UIViewController {
     
     
     @IBAction func saveButtonTouchedUpInside(sender: AnyObject) {
-        self.saveJourneyLog()
+//        self.saveJourneyLog()
+        self.saveJourneyLogObject()
     }
     
     override func viewDidLoad() {
@@ -31,12 +34,30 @@ class JourneyLogEditorViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        loadJourneyLog()
+        // ロードは軽いテキストなら同期でもいいけど、
+        // そうでないなら、非同期も考える必要あり
+//        loadJourneyLog()
+        if(self.memoId != nil){
+            loadJourneyLogObject()
+        }
+        else{
+            // 新規作成時
+            self.memoIdTextField.text = getMemoId()
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func getMemoId() -> String {
+        var prefix = "testmemoId"
+        var formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyyMMdd_HHmmss.SSS"
+        var timestamp = formatter.stringFromDate(NSDate())
+        
+        return "\(prefix)_\(timestamp)"
     }
     
     private func getManagedObjectContext() -> NSManagedObjectContext {
@@ -61,6 +82,30 @@ class JourneyLogEditorViewController: UIViewController {
         println(coffeeMemo)
     }
     
+    private func saveJourneyLogObject(){
+        
+        var context : NSManagedObjectContext = self.getManagedObjectContext()
+        let ent = NSEntityDescription.entityForName("CoffeeMemoEntity", inManagedObjectContext: context)
+        
+        // データ項目が多くなってきた場合の対処方法
+        var coffeeMemo = CoffeeMemoEntity(entity: ent, insertIntoManagedObjectContext: context)
+        coffeeMemo.memoId = self.memoIdTextField.text
+        coffeeMemo.tastingDate = toDate(self.tastingDateTextField.text)
+        coffeeMemo.beanName = self.beanTextField.text
+        coffeeMemo.brewingMethod = self.methodTextField.text
+        coffeeMemo.aroma = self.aromaTextField.text
+        coffeeMemo.acidity = self.acidityTextField.text
+        coffeeMemo.body = self.bodyTextField.text
+        coffeeMemo.flavor = self.flavorTextField.text
+        coffeeMemo.comment = self.commentTextField.text
+        
+        context.save(nil)
+        
+        println(coffeeMemo)
+        println("Object Saved")
+    }
+    
+    
     private func loadJourneyLog(){
         
         var context : NSManagedObjectContext = self.getManagedObjectContext()
@@ -74,6 +119,10 @@ class JourneyLogEditorViewController: UIViewController {
         var results : NSArray = context.executeFetchRequest(request, error: nil)
         
         if(results.count > 0){
+            
+            var result = results[0] as NSManagedObject
+            self.memoIdTextField.text = result.valueForKey("memoId") as String
+            
             for res in results{
                 println(res)
             }
@@ -83,9 +132,82 @@ class JourneyLogEditorViewController: UIViewController {
         
     }
     
+    private func loadJourneyLogObject(){
+        
+        var context : NSManagedObjectContext = self.getManagedObjectContext()
+        
+        var request = NSFetchRequest(entityName: "CoffeeMemoEntity")
+        request.returnsObjectsAsFaults = false
+        request.predicate = NSPredicate(format: "memoId = %@", self.memoId!)
+        
+        // TODO一意キー制約で制限しないと複数件返却されてしまう
+        var results : NSArray = context.executeFetchRequest(request, error: nil)
+        if(results.count > 0){
+            
+            var thisMemo = results[0] as CoffeeMemoEntity
+            self.memoIdTextField.text = thisMemo.memoId
+            self.tastingDateTextField.text = toDateString(thisMemo.tastingDate)
+            self.beanTextField.text = thisMemo.beanName
+            self.methodTextField.text = thisMemo.brewingMethod
+            self.aromaTextField.text = thisMemo.aroma
+            self.acidityTextField.text = thisMemo.acidity
+            self.bodyTextField.text = thisMemo.body
+            self.flavorTextField.text = thisMemo.flavor
+            self.commentTextField.text = thisMemo.comment
+
+//            for memo in results{
+//                var thisMemo = memo as CoffeeMemoEntity
+//                println("This memoId is \(thisMemo.memoId)")
+//                
+//                self.memoIdTextField.text = thisMemo.memoId
+//            }
+            
+            println("\(results.count) found")
+        }
+        else{
+            println("Not Found")
+        }
+    }
+    
     private func setViewData(coffeeMemo : NSManagedObject!){
         self.memoIdTextField.text = coffeeMemo.valueForKey("memoId") as String
     }
+    
+    private func createDateFormatter() -> NSDateFormatter{
+        
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") // ロケールの設定
+        dateFormatter.timeStyle = .NoStyle
+        dateFormatter.dateStyle = .MediumStyle
+        
+        return dateFormatter
+    }
+    
+    // 日付⇄文字列の変換なんてのは、あらゆるところで必要になる
+    // 王道の処理方式ってのはないんだろうか
+    private func toDate(dateString : String) -> NSDate {
+        
+        var date : NSDate = NSDate()
+        if(dateString != nil && dateString != ""){
+            let dateFormatter = createDateFormatter()
+            date = dateFormatter.dateFromString(dateString)
+        }
+        
+        return date
+    }
+    
+    private func toDateString(date : NSDate) -> String {
+        
+        var dateString : String = ""
+        if(date != nil){
+            let dateFormatter = createDateFormatter()
+            dateString = dateFormatter.stringFromDate(date)
+        }
+        
+        return dateString
+    }
+
 
     /*
     // MARK: - Navigation

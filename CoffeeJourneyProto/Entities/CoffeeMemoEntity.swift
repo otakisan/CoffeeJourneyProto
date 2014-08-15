@@ -9,7 +9,24 @@
 import Foundation
 import CoreData
 
+@objc(CoffeeMemoEntity)
 class CoffeeMemoEntity: NSManagedObject {
+    
+    override init(entity: NSEntityDescription!, insertIntoManagedObjectContext context: NSManagedObjectContext!) {
+        super.init(entity : entity, insertIntoManagedObjectContext: context)
+        
+        // ここで初期化してしまうと、データが空に
+        // そもそも登録するときに必ずデフォルト値を設定するようにする
+//        memoId = ""
+//        beanName = ""
+//        tastingDate = NSDate()
+//        brewingMethod = ""
+//        aroma = ""
+//        acidity = ""
+//        body = ""
+//        flavor = ""
+//        comment = ""
+    }
 
     @NSManaged var memoId: String
     @NSManaged var beanName: String
