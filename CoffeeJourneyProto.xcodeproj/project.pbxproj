@@ -18,6 +18,7 @@
 		1605961C199CAF65004F5978 /* SearchConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605961B199CAF65004F5978 /* SearchConditionViewController.swift */; };
 		1605961E199CB118004F5978 /* JourneyLogEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605961D199CB118004F5978 /* JourneyLogEditorViewController.swift */; };
 		16059620199CB269004F5978 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605961F199CB269004F5978 /* SearchResultTableViewController.swift */; };
+		16059622199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		1605961B199CAF65004F5978 /* SearchConditionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchConditionViewController.swift; sourceTree = "<group>"; };
 		1605961D199CB118004F5978 /* JourneyLogEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JourneyLogEditorViewController.swift; sourceTree = "<group>"; };
 		1605961F199CB269004F5978 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
+		16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultMainMenuTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				1605961B199CAF65004F5978 /* SearchConditionViewController.swift */,
 				1605961D199CB118004F5978 /* JourneyLogEditorViewController.swift */,
 				1605961F199CB269004F5978 /* SearchResultTableViewController.swift */,
+				16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16059617199CA956004F5978 /* CoffeeMemoEntity.swift in Sources */,
+				16059622199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift in Sources */,
 				1605961E199CB118004F5978 /* JourneyLogEditorViewController.swift in Sources */,
 				160595FA199C9D6D004F5978 /* ViewController.swift in Sources */,
 				1605961A199CAD43004F5978 /* MainMenuTableViewController.swift in Sources */,
