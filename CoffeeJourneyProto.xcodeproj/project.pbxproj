@@ -19,6 +19,7 @@
 		1605961E199CB118004F5978 /* JourneyLogEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605961D199CB118004F5978 /* JourneyLogEditorViewController.swift */; };
 		16059620199CB269004F5978 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605961F199CB269004F5978 /* SearchResultTableViewController.swift */; };
 		16059622199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */; };
+		16B9EFA8199ED9F700829F47 /* CoffeeMemoSearchCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9EFA7199ED9F700829F47 /* CoffeeMemoSearchCondition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		1605961D199CB118004F5978 /* JourneyLogEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JourneyLogEditorViewController.swift; sourceTree = "<group>"; };
 		1605961F199CB269004F5978 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
 		16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultMainMenuTableViewCell.swift; sourceTree = "<group>"; };
+		16B9EFA7199ED9F700829F47 /* CoffeeMemoSearchCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMemoSearchCondition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			children = (
 				16059616199CA956004F5978 /* CoffeeMemoEntity.swift */,
 				16059615199CA956004F5978 /* CoffeeJourneyProto-Bridging-Header.h */,
+				16B9EFA7199ED9F700829F47 /* CoffeeMemoSearchCondition.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				16059617199CA956004F5978 /* CoffeeMemoEntity.swift in Sources */,
 				16059622199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift in Sources */,
 				1605961E199CB118004F5978 /* JourneyLogEditorViewController.swift in Sources */,
+				16B9EFA8199ED9F700829F47 /* CoffeeMemoSearchCondition.swift in Sources */,
 				160595FA199C9D6D004F5978 /* ViewController.swift in Sources */,
 				1605961A199CAD43004F5978 /* MainMenuTableViewController.swift in Sources */,
 				16059620199CB269004F5978 /* SearchResultTableViewController.swift in Sources */,
@@ -446,6 +450,7 @@
 				16059610199C9D6E004F5978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		16059611199C9D6E004F5978 /* Build configuration list for PBXNativeTarget "CoffeeJourneyProtoTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +459,7 @@
 				16059613199C9D6E004F5978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -9,6 +9,8 @@
 import UIKit
 
 class SearchResultTableViewController: UITableViewController {
+    
+    var searchCondition : CoffeeMemoSearchCondition!
 
     override func viewDidLoad() {
         super.viewDidLoad()
