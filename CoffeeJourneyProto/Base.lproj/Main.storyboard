@@ -336,6 +336,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="eW0-jm-o6r">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="kgl-F7-KkL" kind="relationship" relationship="rootViewController" id="Ycb-gp-YLp"/>
                     </connections>
@@ -346,7 +349,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2kG-rR-GNn"/>
         <segue reference="C9T-60-yY8"/>
+        <segue reference="oKE-ho-v9v"/>
     </inferredMetricsTieBreakers>
 </document>

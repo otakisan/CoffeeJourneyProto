@@ -23,7 +23,7 @@ class SearchResultTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.searchResult = CoffeeMemoContext.find(self.searchCondition, limit: self.fetchLimit)
     }
@@ -35,11 +35,11 @@ class SearchResultTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-//    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
-//        // #warning Potentially incomplete method implementation.
-//        // Return the number of sections.
-//        return 0
-//    }
+    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+        // #warning Potentially incomplete method implementation.
+        // Return the number of sections.
+        return 1
+    }
 
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
@@ -66,17 +66,28 @@ class SearchResultTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
         if editingStyle == .Delete {
+            
+            // 先に行数の元となる配列から要素を削除し、numberOfRowsInSectionで削除後の行数を返却するようにする
+            // 先に削除しないと、deleteRowsAtIndexPathsでエラーになる
+            var rowIndexDeleting = indexPath.row
+            var memoIdDeleting = searchResult[rowIndexDeleting].memoId
+            var coffeeMemoEntityDeleting = searchResult.removeAtIndex(rowIndexDeleting)
+            
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            // 念のため、前の処理が全部成功してから実際に削除する
+            CoffeeMemoContext.sharedInstance.deleteObject(coffeeMemoEntityDeleting)
+            ViewUtility.showMessageDialog(self, title: "log deleted", message: "deleted : \(memoIdDeleting)")
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

@@ -69,14 +69,15 @@ class JourneyLogEditorViewController: UIViewController {
         return context
     }
     
-    func showMessageDialog(title : String, message : String){
-        
-        var message:UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        message.addAction(UIAlertAction(title: "閉じる", style: UIAlertActionStyle.Default, handler: nil))
-        
-        self.presentViewController(message, animated: true, completion: nil)
-        
-    }
+    // ダイアログ表示
+//    func showMessageDialog(title : String, message : String){
+//        
+//        var message:UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+//        message.addAction(UIAlertAction(title: "閉じる", style: UIAlertActionStyle.Default, handler: nil))
+//        
+//        self.presentViewController(message, animated: true, completion: nil)
+//        
+//    }
     
     private func saveJourneyLog(){
 //        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
@@ -119,7 +120,7 @@ class JourneyLogEditorViewController: UIViewController {
         println(self.existingCoffeeMemo!)
         println("Object Saved")
         
-        showMessageDialog("log saved", message: "saved : \(self.existingCoffeeMemo!.memoId)")
+        ViewUtility.showMessageDialog(self, title: "log saved", message: "saved : \(self.existingCoffeeMemo!.memoId)")
     }
     
     
