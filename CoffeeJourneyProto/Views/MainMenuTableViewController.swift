@@ -139,12 +139,13 @@ class MainMenuTableViewController: UITableViewController, UITableViewDelegate, U
     
     private func prepareForRecentEntries(segue: UIStoryboardSegue!, sender: AnyObject!){
         var vc = segue.destinationViewController as SearchResultTableViewController
-        vc.title = " recent called!"
+        vc.title = "Last 10"
+        vc.fetchLimit = 10
     }
     
     private func prepareForSearchCondition(segue: UIStoryboardSegue!, sender: AnyObject!){
         var vc = segue.destinationViewController as SearchConditionViewController
-        vc.title = " cond called!"
+        vc.title = "Search Condition"
     }
     
     private func prepareForNewEntry(segue: UIStoryboardSegue!, sender: AnyObject!){

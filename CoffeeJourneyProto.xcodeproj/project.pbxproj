@@ -21,6 +21,8 @@
 		16059622199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */; };
 		16B9EFAB199EEDA200829F47 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9EFAA199EEDA200829F47 /* DateUtility.swift */; };
 		16B9EFAE199EFB3C00829F47 /* CoffeeMemoSearchCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9EFAD199EFB3C00829F47 /* CoffeeMemoSearchCondition.swift */; };
+		16B9EFB3199F118400829F47 /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9EFB1199F0B9900829F47 /* StringUtility.swift */; };
+		16B9EFB4199F11B400829F47 /* CoffeeMemoContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9EFAF199EFCA200829F47 /* CoffeeMemoContext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultMainMenuTableViewCell.swift; sourceTree = "<group>"; };
 		16B9EFAA199EEDA200829F47 /* DateUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		16B9EFAD199EFB3C00829F47 /* CoffeeMemoSearchCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMemoSearchCondition.swift; sourceTree = "<group>"; };
+		16B9EFAF199EFCA200829F47 /* CoffeeMemoContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMemoContext.swift; sourceTree = "<group>"; };
+		16B9EFB1199F0B9900829F47 /* StringUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				16B9EFAA199EEDA200829F47 /* DateUtility.swift */,
+				16B9EFB1199F0B9900829F47 /* StringUtility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				16B9EFAD199EFB3C00829F47 /* CoffeeMemoSearchCondition.swift */,
+				16B9EFAF199EFCA200829F47 /* CoffeeMemoContext.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -269,6 +275,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16B9EFB4199F11B400829F47 /* CoffeeMemoContext.swift in Sources */,
+				16B9EFB3199F118400829F47 /* StringUtility.swift in Sources */,
 				16059617199CA956004F5978 /* CoffeeMemoEntity.swift in Sources */,
 				16B9EFAE199EFB3C00829F47 /* CoffeeMemoSearchCondition.swift in Sources */,
 				16059622199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift in Sources */,

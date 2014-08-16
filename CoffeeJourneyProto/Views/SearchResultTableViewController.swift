@@ -10,7 +10,11 @@ import UIKit
 
 class SearchResultTableViewController: UITableViewController {
     
-    var searchCondition : CoffeeMemoSearchCondition!
+    // nilを許容しない型の場合は、ここで初期化する必要がある
+    // もしくはイニシャライザ（init系メソッド）
+    var searchCondition : CoffeeMemoSearchCondition! = CoffeeMemoSearchCondition()
+    var searchResult : [CoffeeMemoEntity] = []
+    var fetchLimit : Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +24,8 @@ class SearchResultTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.searchResult = CoffeeMemoContext.find(self.searchCondition, limit: self.fetchLimit)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,27 +35,28 @@ class SearchResultTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
+//    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+//        // #warning Potentially incomplete method implementation.
+//        // Return the number of sections.
+//        return 0
+//    }
 
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return self.searchResult.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseSearchResultCellIdentifier", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
+        cell.textLabel.text = self.searchResult[indexPath.row].memoId
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
