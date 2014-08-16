@@ -51,7 +51,6 @@
 		1605961D199CB118004F5978 /* JourneyLogEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JourneyLogEditorViewController.swift; sourceTree = "<group>"; };
 		1605961F199CB269004F5978 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
 		16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultMainMenuTableViewCell.swift; sourceTree = "<group>"; };
-		16B9EFA7199ED9F700829F47 /* CoffeeMemoSearchCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoffeeMemoSearchCondition.swift; path = ../Entities/CoffeeMemoSearchCondition.swift; sourceTree = "<group>"; };
 		16B9EFAA199EEDA200829F47 /* DateUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		16B9EFAD199EFB3C00829F47 /* CoffeeMemoSearchCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMemoSearchCondition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				16B9EFAD199EFB3C00829F47 /* CoffeeMemoSearchCondition.swift */,
-				16B9EFA7199ED9F700829F47 /* CoffeeMemoSearchCondition.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
