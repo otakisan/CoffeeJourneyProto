@@ -20,6 +20,7 @@
 		16059620199CB269004F5978 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605961F199CB269004F5978 /* SearchResultTableViewController.swift */; };
 		16059622199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */; };
 		16B9EFA8199ED9F700829F47 /* CoffeeMemoSearchCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9EFA7199ED9F700829F47 /* CoffeeMemoSearchCondition.swift */; };
+		16B9EFAB199EEDA200829F47 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9EFAA199EEDA200829F47 /* DateUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		1605961F199CB269004F5978 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
 		16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultMainMenuTableViewCell.swift; sourceTree = "<group>"; };
 		16B9EFA7199ED9F700829F47 /* CoffeeMemoSearchCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMemoSearchCondition.swift; sourceTree = "<group>"; };
+		16B9EFAA199EEDA200829F47 /* DateUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		160595F1199C9D6D004F5978 /* CoffeeJourneyProto */ = {
 			isa = PBXGroup;
 			children = (
+				16B9EFA9199EED2000829F47 /* Utilities */,
 				16059618199CAAA6004F5978 /* Views */,
 				16059614199CA744004F5978 /* Entities */,
 				160595F4199C9D6D004F5978 /* AppDelegate.swift */,
@@ -149,6 +152,14 @@
 				16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		16B9EFA9199EED2000829F47 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				16B9EFAA199EEDA200829F47 /* DateUtility.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +263,7 @@
 			files = (
 				16059617199CA956004F5978 /* CoffeeMemoEntity.swift in Sources */,
 				16059622199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift in Sources */,
+				16B9EFAB199EEDA200829F47 /* DateUtility.swift in Sources */,
 				1605961E199CB118004F5978 /* JourneyLogEditorViewController.swift in Sources */,
 				16B9EFA8199ED9F700829F47 /* CoffeeMemoSearchCondition.swift in Sources */,
 				160595FA199C9D6D004F5978 /* ViewController.swift in Sources */,
