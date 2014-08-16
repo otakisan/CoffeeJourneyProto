@@ -91,7 +91,7 @@ class CoffeeMemoContext: NSObject {
             request.fetchLimit = limit
         }
         
-        // predicateのほうも？
+        // predicateのほうも[AnyObject]!とありながら、実は特定の型を要求しているかもしれない
         request.sortDescriptors = [NSSortDescriptor(key: "tastingDate", ascending: false)]
         
         // 検索

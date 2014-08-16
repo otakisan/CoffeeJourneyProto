@@ -12,6 +12,7 @@ import CoreData
 class JourneyLogEditorViewController: UIViewController {
     
     var memoId : String?
+    var existingCoffeeMemo : CoffeeMemoEntity?
 
     @IBOutlet weak var memoIdTextField: UITextField!
     @IBOutlet weak var tastingDateTextField: UITextField!
@@ -88,20 +89,25 @@ class JourneyLogEditorViewController: UIViewController {
         let ent = NSEntityDescription.entityForName("CoffeeMemoEntity", inManagedObjectContext: context)
         
         // データ項目が多くなってきた場合の対処方法
-        var coffeeMemo = CoffeeMemoEntity(entity: ent, insertIntoManagedObjectContext: context)
-        coffeeMemo.memoId = self.memoIdTextField.text
-        coffeeMemo.tastingDate = toDate(self.tastingDateTextField.text)
-        coffeeMemo.beanName = self.beanTextField.text
-        coffeeMemo.brewingMethod = self.methodTextField.text
-        coffeeMemo.aroma = self.aromaTextField.text
-        coffeeMemo.acidity = self.acidityTextField.text
-        coffeeMemo.body = self.bodyTextField.text
-        coffeeMemo.flavor = self.flavorTextField.text
-        coffeeMemo.comment = self.commentTextField.text
+        if(self.existingCoffeeMemo == nil){
+            self.existingCoffeeMemo = CoffeeMemoEntity(entity: ent, insertIntoManagedObjectContext: context)
+        }
+        else{
+            
+        }
+        self.existingCoffeeMemo!.memoId = self.memoIdTextField.text
+        self.existingCoffeeMemo!.tastingDate = toDate(self.tastingDateTextField.text)
+        self.existingCoffeeMemo!.beanName = self.beanTextField.text
+        self.existingCoffeeMemo!.brewingMethod = self.methodTextField.text
+        self.existingCoffeeMemo!.aroma = self.aromaTextField.text
+        self.existingCoffeeMemo!.acidity = self.acidityTextField.text
+        self.existingCoffeeMemo!.body = self.bodyTextField.text
+        self.existingCoffeeMemo!.flavor = self.flavorTextField.text
+        self.existingCoffeeMemo!.comment = self.commentTextField.text
         
         context.save(nil)
         
-        println(coffeeMemo)
+        println(self.existingCoffeeMemo!)
         println("Object Saved")
     }
     
@@ -154,6 +160,8 @@ class JourneyLogEditorViewController: UIViewController {
             self.bodyTextField.text = thisMemo.body
             self.flavorTextField.text = thisMemo.flavor
             self.commentTextField.text = thisMemo.comment
+            
+            self.existingCoffeeMemo = thisMemo
 
 //            for memo in results{
 //                var thisMemo = memo as CoffeeMemoEntity
