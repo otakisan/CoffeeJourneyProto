@@ -32,21 +32,56 @@ class CoffeeMemoContext: NSObject {
     }
     
     // なんかうまくいかない
-    private class func getFindPredicateCondition(condition : CoffeeMemoSearchCondition!) -> (String!, [AnyObject]!){
+    private class func getFindPredicateCondition(condition : CoffeeMemoSearchCondition!) -> NSPredicate {
         
          // 汎用性を考えて、utility側でnil許容としているため。
-        var formatStrings : [String!] = []
-        var parameters : [AnyObject] = []
-        
+        var predicates : [NSPredicate] = []
+    
         // TODO: 検索条件の型ごとに汎用的に一気に作れるようにしたい
         // 今回はひとまず動作させてたいので、べた書きする
         if(condition.memoId != nil){
-            formatStrings.append("memoId = %@")
-            parameters.append(condition.memoId!)
+            predicates.append(NSPredicate(format: "memoId BEGINSWITH[c] %@", condition.memoId!))
         }
         
-        var formatString = StringUtility.join(formatStrings, delimiter: " AND ")
-        return (formatString, parameters)
+        if(condition.fromTastingDate != nil){
+            predicates.append(NSPredicate(format: "tastingDate >= %@", condition.fromTastingDate!))
+        }
+        
+        if(condition.toTastingDate != nil){
+            predicates.append(NSPredicate(format: "tastingDate <= %@", condition.toTastingDate!))
+        }
+
+        if(condition.beanName != nil){
+            predicates.append(NSPredicate(format: "beanName ==[c] %@", condition.beanName!))
+        }
+        
+        if(condition.brewingMethod != nil){
+            predicates.append(NSPredicate(format: "brewingMethod ==[c] %@", condition.brewingMethod!))
+        }
+
+        if(condition.aroma != nil){
+            predicates.append(NSPredicate(format: "aroma CONTAINS[c] %@", condition.aroma!))
+        }
+
+        if(condition.acidity != nil){
+            predicates.append(NSPredicate(format: "acidity CONTAINS[c] %@", condition.acidity!))
+        }
+        
+        if(condition.body != nil){
+            predicates.append(NSPredicate(format: "body CONTAINS[c] %@", condition.body!))
+        }
+        
+        if(condition.flavor != nil){
+            predicates.append(NSPredicate(format: "flavor CONTAINS[c] %@", condition.flavor!))
+        }
+        
+        if(condition.comment != nil){
+            predicates.append(NSPredicate(format: "comment CONTAINS[c] %@", condition.comment!))
+        }
+        
+        var predicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: predicates)
+        
+        return predicate
     }
     
     // セキュリティ的に良くないけど、ひとまず動作させるため、全て文字列として埋め込む
@@ -92,11 +127,26 @@ class CoffeeMemoContext: NSObject {
 //        request.predicate = NSPredicate(format: predicateInfo.0, predicateInfo.1)
         
         // どうやら、prmに[AnyObject]!を取るのは、in句のように複数項目をとるキーワードに対するバインド変数のみらしい
-        var str : String! = "memoId in %@"
-        var prm : [AnyObject]! = ["testmemoId_20140816", "CJL"]
-//        var prm : CVarArgType = "testmemoId"
-        request.predicate = NSPredicate(format: str, prm)
+//        var str : String! = "memoId in %@"
+//        var prm : [AnyObject]! = ["testmemoId_20140816", "CJL"]
+//        request.predicate = NSPredicate(format: str, prm)
         
+        // 複数指定
+//        var str : String! = "memoId beginswith %@"
+//        var prm : String = "CJL"
+//        // NSDateを使用する場合、Betweenは使えないっぽい
+//        var fromStr : String! = "tastingDate >= %@"
+//        var fromPrm : CVarArgType = DateUtility.sharedInstance.toDate("2014-08-16 00:00:00.000")
+//        
+//        var toStr : String! = "tastingDate <= %@"
+//        var toPrm : CVarArgType = DateUtility.sharedInstance.toDate("2014-08-18 00:00:00.000")
+//        
+//        DateUtility.sharedInstance.toDate("2014-08-17 00:00:00.000")
+//        request.predicate = NSCompoundPredicate(
+//            type: NSCompoundPredicateType.AndPredicateType,
+//            subpredicates: [NSPredicate(format: str, prm), NSPredicate(format: fromStr, fromPrm), NSPredicate(format: toStr, toPrm)]
+//        )
+
         // これはうまくいく
 //        var str : String = "tastingDate >= %@"
 //        var prm : CVarArgType = DateUtility.sharedInstance.toDate("2014-08-16 00:00:00.000")
@@ -107,6 +157,8 @@ class CoffeeMemoContext: NSObject {
 //        if(queryString != ""){
 //            request.predicate = NSPredicate(format: queryString)
 //        }
+        
+        request.predicate = getFindPredicateCondition(condition)
         
         if(limit > 0){
             request.fetchLimit = limit
