@@ -152,8 +152,7 @@ class MainMenuTableViewController: UITableViewController, UITableViewDelegate, U
         var vc = segue.destinationViewController as JourneyLogEditorViewController
         
         vc.title = "New Journey Log"
-        //vc.memoId = "testmemoId_20140815_195509.925" // 検索結果画面からの遷移時はID指定で呼び出す
     }
-
-
+    
+    
 }

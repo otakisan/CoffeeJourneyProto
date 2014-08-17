@@ -37,8 +37,8 @@ class JourneyLogEditorViewController: UIViewController {
         
         // ロードは軽いテキストなら同期でもいいけど、
         // そうでないなら、非同期も考える必要あり
-//        loadJourneyLog()
         if(self.memoId != nil){
+            //        loadJourneyLog()
             loadJourneyLogObject()
         }
         else{
@@ -69,19 +69,7 @@ class JourneyLogEditorViewController: UIViewController {
         return context
     }
     
-    // ダイアログ表示
-//    func showMessageDialog(title : String, message : String){
-//        
-//        var message:UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-//        message.addAction(UIAlertAction(title: "閉じる", style: UIAlertActionStyle.Default, handler: nil))
-//        
-//        self.presentViewController(message, animated: true, completion: nil)
-//        
-//    }
-    
     private func saveJourneyLog(){
-//        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
-//        var context : NSManagedObjectContext = appDel.managedObjectContext!
         
         var context : NSManagedObjectContext = self.getManagedObjectContext()
         var coffeeMemo = NSEntityDescription.insertNewObjectForEntityForName("CoffeeMemoEntity", inManagedObjectContext: context) as NSManagedObject
