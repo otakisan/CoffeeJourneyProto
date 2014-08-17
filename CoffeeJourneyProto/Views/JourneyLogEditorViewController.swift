@@ -53,7 +53,7 @@ class JourneyLogEditorViewController: UIViewController {
     }
     
     private func getMemoId() -> String {
-        var prefix = "testmemoId"
+        var prefix = "CJL"
         var formatter = NSDateFormatter()
         formatter.dateFormat = "yyyyMMdd_HHmmss.SSS"
         var timestamp = formatter.stringFromDate(NSDate())

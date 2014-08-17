@@ -23,7 +23,7 @@ class DateUtility : NSObject {
     
     convenience override init(){
         
-        self.init(dateFormat : "")
+        self.init(dateFormat : "yyyy-MM-dd HH:mm:ss.SSS")
     }
     
     init(dateFormat : String!){

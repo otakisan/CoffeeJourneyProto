@@ -56,7 +56,25 @@ class CoffeeMemoContext: NSObject {
         var formatStrings : [String!] = []
         
         if(condition.memoId != nil){
-            formatStrings.append("memoId = '\(condition.memoId!)'")
+            formatStrings.append("memoId LIKE '\(condition.memoId!)*'")
+        }
+        
+        if(condition.fromTastingDate != nil || condition.toTastingDate != nil){
+            // NSDate型のカラムに対して絞り込みする場合、%@を使った形でないとダメ？？
+            var fromDateTimeString = "0000-01-01 00:00:00.000"
+            var toDateTimeString = "9999-12-31 23:59:59.999"
+            
+            if(condition.fromTastingDate != nil){
+                fromDateTimeString = DateUtility.sharedInstance.toDateString(condition.fromTastingDate)
+            }
+            if(condition.toTastingDate != nil){
+                toDateTimeString = DateUtility.sharedInstance.toDateString(condition.toTastingDate)
+            }
+            
+            // 数字しか使えないっぽい
+//            formatStrings.append("tastingDate between {\(fromDateTimeString), \(toDateTimeString)}")
+//            formatStrings.append("(tastingDate >= '\(fromDateTimeString)') && (tastingDate <= '\(toDateTimeString)')")
+            formatStrings.append("tastingDate >= '2014-08-16 00:00:00 +0900'")
         }
         
         var formatString = StringUtility.join(formatStrings, delimiter: " AND ")
@@ -73,25 +91,29 @@ class CoffeeMemoContext: NSObject {
 //        var predicateInfo = getFindPredicateCondition(condition)
 //        request.predicate = NSPredicate(format: predicateInfo.0, predicateInfo.1)
         
-//        var str : String! = "memoId = %@"
-//        var prm : [AnyObject]! = ["testmemoId_20140815_195509.925"]
-//        request.predicate = NSPredicate(format: str, prm)
-        // これもうまくいかない
-//        var str : String = "memoId = %@"
-//        var prm : CVarArgType = "testmemoId_20140815_195509.925"
+        // どうやら、prmに[AnyObject]!を取るのは、in句のように複数項目をとるキーワードに対するバインド変数のみらしい
+        var str : String! = "memoId in %@"
+        var prm : [AnyObject]! = ["testmemoId_20140816", "CJL"]
+//        var prm : CVarArgType = "testmemoId"
+        request.predicate = NSPredicate(format: str, prm)
+        
+        // これはうまくいく
+//        var str : String = "tastingDate >= %@"
+//        var prm : CVarArgType = DateUtility.sharedInstance.toDate("2014-08-16 00:00:00.000")
 //        request.predicate = NSPredicate(format: str, prm)
         
         // 全て文字列で埋めてしまう
-        var queryString : String = getFindPredicateConditionString(condition)
-        if(queryString != ""){
-            request.predicate = NSPredicate(format: queryString)
-        }
+//        var queryString : String = getFindPredicateConditionString(condition)
+//        if(queryString != ""){
+//            request.predicate = NSPredicate(format: queryString)
+//        }
         
         if(limit > 0){
             request.fetchLimit = limit
         }
         
         // predicateのほうも[AnyObject]!とありながら、実は特定の型を要求しているかもしれない
+        // NSCompoundPredicate
         request.sortDescriptors = [NSSortDescriptor(key: "tastingDate", ascending: false)]
         
         // 検索
