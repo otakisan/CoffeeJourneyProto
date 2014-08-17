@@ -26,6 +26,10 @@ class SearchConditionViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        var timeInterval : NSTimeInterval = -1 * 3600 * 24 * 7 // １週間前
+        self.fromTastingDateTextField.text = DateUtility.sharedInstance.toDisplayDateString(NSDate().dateByAddingTimeInterval(timeInterval))
+        self.toTastingDateTextField.text = DateUtility.sharedInstance.toDisplayDateString(NSDate())
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,8 +50,8 @@ class SearchConditionViewController: UIViewController {
         // 空による検索はシステム内部で行う（もしくはUI上、チェックボックスを付け、「空を検索」とする必要がある）
         var condition = CoffeeMemoSearchCondition()
         condition.memoId = self.memoIdTextField.text == "" ? nil : self.memoIdTextField.text
-        condition.fromTastingDate = self.fromTastingDateTextField.text == "" ? nil : DateUtility.sharedInstance.toDate(self.fromTastingDateTextField.text)
-        condition.toTastingDate = self.toTastingDateTextField.text == "" ? nil : DateUtility.sharedInstance.toDate(self.toTastingDateTextField.text)
+        condition.fromTastingDate = self.fromTastingDateTextField.text == "" ? nil : DateUtility.sharedInstance.toDateFromDisplayString(self.fromTastingDateTextField.text)
+        condition.toTastingDate = self.toTastingDateTextField.text == "" ? nil : DateUtility.sharedInstance.toDateFromDisplayString(self.toTastingDateTextField.text)
         condition.beanName = self.beanNameTextField.text == "" ? nil : self.beanNameTextField.text
         condition.brewingMethod = self.brewingMethodTextField.text == "" ? nil : self.brewingMethodTextField.text
         condition.aroma = nil

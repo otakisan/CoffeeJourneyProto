@@ -40,5 +40,41 @@ class DateUtility : NSObject {
     func toDateString(date : NSDate!) -> String {
         return dateFormatter.stringFromDate(date)
     }
-   
+
+    private func createDisplayDateFormatter() -> NSDateFormatter{
+        
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") // ロケールの設定
+        dateFormatter.timeStyle = .MediumStyle
+        dateFormatter.dateStyle = .MediumStyle
+        
+        return dateFormatter
+    }
+    
+    // 日付⇄文字列の変換なんてのは、あらゆるところで必要になる
+    // 王道の処理方式ってのはないんだろうか
+    func toDateFromDisplayString(dateString : String) -> NSDate {
+        
+        // 受け入れ可能なフォーマットが実は固定な仕様になっている
+        var date : NSDate = NSDate()
+        if(dateString != nil && dateString != ""){
+            let dateFormatter = createDisplayDateFormatter()
+            date = dateFormatter.dateFromString(dateString)
+        }
+        
+        return date
+    }
+    
+    func toDisplayDateString(date : NSDate) -> String {
+        
+        var dateString : String = ""
+        if(date != nil){
+            let dateFormatter = createDisplayDateFormatter()
+            dateString = dateFormatter.stringFromDate(date)
+        }
+        
+        return dateString
+    }
+
 }

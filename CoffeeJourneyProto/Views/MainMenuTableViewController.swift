@@ -40,6 +40,9 @@ class MainMenuTableViewController: UITableViewController, UITableViewDelegate, U
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        // タイトル
+        self.navigationItem.title = "Main Menu"
+        
         // 動的にセルの数を増やす場合に
         // トップ画面は固定セルなので処理しない
 //        self.tableView.registerClass(DefaultMainMenuTableViewCell.self, forCellReuseIdentifier: self.defaultTableViewCellIdentifier)

@@ -44,6 +44,7 @@ class JourneyLogEditorViewController: UIViewController {
         else{
             // 新規作成時
             self.memoIdTextField.text = getMemoId()
+            self.tastingDateTextField.text = DateUtility.sharedInstance.toDisplayDateString(NSDate())
         }
     }
 
@@ -94,7 +95,7 @@ class JourneyLogEditorViewController: UIViewController {
             
         }
         self.existingCoffeeMemo!.memoId = self.memoIdTextField.text
-        self.existingCoffeeMemo!.tastingDate = toDate(self.tastingDateTextField.text)
+        self.existingCoffeeMemo!.tastingDate = DateUtility.sharedInstance.toDateFromDisplayString(self.tastingDateTextField.text)
         self.existingCoffeeMemo!.beanName = self.beanTextField.text
         self.existingCoffeeMemo!.brewingMethod = self.methodTextField.text
         self.existingCoffeeMemo!.aroma = self.aromaTextField.text
@@ -152,7 +153,7 @@ class JourneyLogEditorViewController: UIViewController {
             
             var thisMemo = results[0] as CoffeeMemoEntity
             self.memoIdTextField.text = thisMemo.memoId
-            self.tastingDateTextField.text = toDateString(thisMemo.tastingDate)
+            self.tastingDateTextField.text = DateUtility.sharedInstance.toDisplayDateString(thisMemo.tastingDate)
             self.beanTextField.text = thisMemo.beanName
             self.methodTextField.text = thisMemo.brewingMethod
             self.aromaTextField.text = thisMemo.aroma
@@ -181,40 +182,6 @@ class JourneyLogEditorViewController: UIViewController {
         self.memoIdTextField.text = coffeeMemo.valueForKey("memoId") as String
     }
     
-    private func createDateFormatter() -> NSDateFormatter{
-        
-        let dateFormatter = NSDateFormatter()
-        
-        dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") // ロケールの設定
-        dateFormatter.timeStyle = .NoStyle
-        dateFormatter.dateStyle = .MediumStyle
-        
-        return dateFormatter
-    }
-    
-    // 日付⇄文字列の変換なんてのは、あらゆるところで必要になる
-    // 王道の処理方式ってのはないんだろうか
-    private func toDate(dateString : String) -> NSDate {
-        
-        var date : NSDate = NSDate()
-        if(dateString != nil && dateString != ""){
-            let dateFormatter = createDateFormatter()
-            date = dateFormatter.dateFromString(dateString)
-        }
-        
-        return date
-    }
-    
-    private func toDateString(date : NSDate) -> String {
-        
-        var dateString : String = ""
-        if(date != nil){
-            let dateFormatter = createDateFormatter()
-            dateString = dateFormatter.stringFromDate(date)
-        }
-        
-        return dateString
-    }
 
 
     /*
