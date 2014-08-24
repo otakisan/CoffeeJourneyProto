@@ -24,6 +24,7 @@
 		16B9EFB3199F118400829F47 /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9EFB1199F0B9900829F47 /* StringUtility.swift */; };
 		16B9EFB4199F11B400829F47 /* CoffeeMemoContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9EFAF199EFCA200829F47 /* CoffeeMemoContext.swift */; };
 		16B9EFB6199F49DF00829F47 /* ViewUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9EFB5199F49DF00829F47 /* ViewUtility.swift */; };
+		16B9EFB819A993F000829F47 /* CJLEditorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9EFB719A993F000829F47 /* CJLEditorTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		16B9EFAF199EFCA200829F47 /* CoffeeMemoContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMemoContext.swift; sourceTree = "<group>"; };
 		16B9EFB1199F0B9900829F47 /* StringUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
 		16B9EFB5199F49DF00829F47 /* ViewUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtility.swift; sourceTree = "<group>"; };
+		16B9EFB719A993F000829F47 /* CJLEditorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJLEditorTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				1605961D199CB118004F5978 /* JourneyLogEditorViewController.swift */,
 				1605961F199CB269004F5978 /* SearchResultTableViewController.swift */,
 				16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */,
+				16B9EFB719A993F000829F47 /* CJLEditorTableViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				16059620199CB269004F5978 /* SearchResultTableViewController.swift in Sources */,
 				160595F5199C9D6D004F5978 /* AppDelegate.swift in Sources */,
 				1605961C199CAF65004F5978 /* SearchConditionViewController.swift in Sources */,
+				16B9EFB819A993F000829F47 /* CJLEditorTableViewController.swift in Sources */,
 				160595F8199C9D6D004F5978 /* CoffeeJourneyProto.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

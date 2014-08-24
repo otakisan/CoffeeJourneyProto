@@ -19,18 +19,46 @@ class MainMenuTableViewController: UITableViewController, UITableViewDelegate, U
     let segueIdRecentEntries = "showSearchResultEntries"
     let segueIdSearchCondition = "showSearchConditionSegue"
     let segueIdNewEntry = "showJourneyLogEditorSegue"
+    let segueIdNewEntryV2 = "showCJLEditorV2Segue"
     
     // メニューデータをオブジェクト化するか、他の仕組みで効率的に保持できるか。
-    let menuData = [
-        ["title" : "Recent Entries", "segueId" : "showSearchResultEntries"],
-        ["title" : "Search", "segueId" : "showSearchConditionSegue"],
-        ["title" : "New Entry", "segueId" : "showJourneyLogEditorSegue"]
-    ]
+    // 型を明示的に指定しないとNSArray扱いになり、appendが見えなくなる
+    var menuData : [[String : String]] = []
+//    let menuData = [
+//        ["title" : "Recent Entries", "segueId" : "showSearchResultEntries"],
+//        ["title" : "Search", "segueId" : "showSearchConditionSegue"],
+//        ["title" : "New Entry", "segueId" : "showJourneyLogEditorSegue"],
+//        ["title" : "CJL Editor Ver.2", "segueId" : "showCJLEditorV2Segue"]
+//    ]
     
-    let prepareMethod = [
-        "" : prepareForNewEntry
-    ]
-
+//    let prepareMethod = [
+//        "" : prepareForNewEntry
+//    ]
+    
+    private func InitializeInstance(){
+        
+        self.menuData.append(["title" : "Recent Entries", "segueId" : segueIdRecentEntries])
+        self.menuData.append(["title" : "Search", "segueId" : segueIdSearchCondition])
+        self.menuData.append(["title" : "New Entry", "segueId" : segueIdNewEntry])
+        self.menuData.append(["title" : "CJL Editor Ver.2", "segueId" : segueIdNewEntryV2])
+        
+    }
+    
+    override init(style: UITableViewStyle) {
+        super.init(style: style)
+        InitializeInstance()
+    }
+    
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
+        InitializeInstance()
+    }
+    
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
+        super.init(nibName: nibNameOrNil, bundle : nibBundleOrNil)
+        InitializeInstance()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
