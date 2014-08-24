@@ -76,5 +76,13 @@ class DateUtility : NSObject {
         
         return dateString
     }
+    
+    func toSubtitleDateString(date : NSDate) -> String{
+        // 日付⇄文字列
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd"
+        return dateFormatter.stringFromDate(date)
+
+    }
 
 }

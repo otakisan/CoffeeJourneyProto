@@ -51,9 +51,12 @@ class SearchResultTableViewController: UITableViewController {
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseSearchResultCellIdentifier", forIndexPath: indexPath) as UITableViewCell
 
-        // Configure the cell...
-        cell.textLabel.text = self.searchResult[indexPath.row].memoId
-
+        // detailはcellのタイプをsubtitleにしておく必要がある
+        cell.textLabel.text = self.searchResult[indexPath.row].comment
+        
+        var dateForSubtitle = DateUtility.sharedInstance.toSubtitleDateString(self.searchResult[indexPath.row].tastingDate)
+        cell.detailTextLabel.text = dateForSubtitle + " " + self.searchResult[indexPath.row].beanName + ", " + self.searchResult[indexPath.row].brewingMethod
+        
         return cell
     }
     
@@ -118,8 +121,9 @@ class SearchResultTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         
         var vc = segue.destinationViewController as JourneyLogEditorViewController
-        var selectedCell = self.tableView.cellForRowAtIndexPath(self.tableView.indexPathForSelectedRow())
-        vc.memoId = selectedCell.textLabel.text
+//        var selectedCell = self.tableView.cellForRowAtIndexPath(self.tableView.indexPathForSelectedRow())
+//        vc.memoId = selectedCell.textLabel.text
+        vc.memoId = self.searchResult[self.tableView.indexPathForSelectedRow().row].memoId
     }
     
     
