@@ -15,7 +15,7 @@ class SearchResultTableViewController: UITableViewController {
     var searchCondition : CoffeeMemoSearchCondition! = CoffeeMemoSearchCondition()
     var searchResult : [CoffeeMemoEntity] = []
     var fetchLimit : Int = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -122,5 +122,5 @@ class SearchResultTableViewController: UITableViewController {
         vc.memoId = selectedCell.textLabel.text
     }
     
-
+    
 }

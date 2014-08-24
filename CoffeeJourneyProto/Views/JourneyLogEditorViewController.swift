@@ -28,6 +28,20 @@ class JourneyLogEditorViewController: UIViewController {
     @IBAction func saveButtonTouchedUpInside(sender: AnyObject) {
 //        self.saveJourneyLog()
         self.saveJourneyLogObject()
+        
+        // ↓だと元の画面に戻らないので、UnwindSegueでやるっぽい
+        // ちなみに実行するとダイアログが閉じる
+        self.dismissViewControllerAnimated(true, completion: { () in
+            println("completion called!")
+        })
+        
+        // ↓効かない
+//                self.navigationController.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func unwind(sender: UIStoryboardSegue) {
+        // ↓を実行すると戻るけど、ダイアログが表示されない
+//        self.navigationController.popViewControllerAnimated(true)
     }
     
     override func viewDidLoad() {
@@ -183,8 +197,6 @@ class JourneyLogEditorViewController: UIViewController {
     }
     
 
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -192,6 +204,11 @@ class JourneyLogEditorViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
+    override func canPerformUnwindSegueAction(action: Selector, fromViewController: UIViewController!, withSender sender: AnyObject!) -> Bool {
+        
+        return true
+    }
+    
 
 }
