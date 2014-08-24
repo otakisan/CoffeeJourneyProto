@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6220.8" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CoffeeMemoEntity" representedClassName="CoffeeMemoEntity" syncable="YES">
+        <attribute name="acidity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aroma" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="atmosphericTemperature" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beanName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="brewingMethod" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="flavor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="humidity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastUpdatedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="liquidusTemperature" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memoId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tastingDate" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CoffeeMemoEntity" positionX="-63" positionY="-18" width="128" height="268"/>
+    </elements>
+</model>

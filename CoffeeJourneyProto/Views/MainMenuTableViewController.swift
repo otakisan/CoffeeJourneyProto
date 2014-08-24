@@ -56,7 +56,6 @@ class MainMenuTableViewController: UITableViewController, UITableViewDelegate, U
     
     override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle : nibBundleOrNil)
-        InitializeInstance()
     }
     
     override func viewDidLoad() {

@@ -61,6 +61,7 @@
 		16B9EFB1199F0B9900829F47 /* StringUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
 		16B9EFB5199F49DF00829F47 /* ViewUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtility.swift; sourceTree = "<group>"; };
 		16B9EFB719A993F000829F47 /* CJLEditorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJLEditorTableViewController.swift; sourceTree = "<group>"; };
+		16B9EFB919A9A87200829F47 /* CoffeeJourneyProto_CJLEditorV2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoffeeJourneyProto_CJLEditorV2.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -503,9 +504,10 @@
 		160595F6199C9D6D004F5978 /* CoffeeJourneyProto.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				16B9EFB919A9A87200829F47 /* CoffeeJourneyProto_CJLEditorV2.xcdatamodel */,
 				160595F7199C9D6D004F5978 /* CoffeeJourneyProto.xcdatamodel */,
 			);
-			currentVersion = 160595F7199C9D6D004F5978 /* CoffeeJourneyProto.xcdatamodel */;
+			currentVersion = 16B9EFB919A9A87200829F47 /* CoffeeJourneyProto_CJLEditorV2.xcdatamodel */;
 			path = CoffeeJourneyProto.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
