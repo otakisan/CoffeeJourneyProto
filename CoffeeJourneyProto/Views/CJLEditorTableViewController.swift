@@ -50,10 +50,20 @@ class CJLEditorTableViewController: UITableViewController {
     }
 
     func initializeViewData(){
+        
         self.memoIdCell.detailTextLabel.text = CoffeeMemoService.getMemoId()
         self.tastingDateCell.detailTextLabel.text = DateUtility.sharedInstance.toDisplayDateString(NSDate())
         self.beanNameCell.detailTextLabel.text = nodataString
         self.brewingMethodCell.detailTextLabel.text = nodataString
+        self.aromaCell.detailTextLabel.text = nodataString
+        self.acidityCell.detailTextLabel.text = nodataString
+        self.bodyCell.detailTextLabel.text = nodataString
+        self.flavorCell.detailTextLabel.text = nodataString
+        self.commentCell.detailTextLabel.text = nodataString
+        self.placeCell.detailTextLabel.text = nodataString
+        self.liquidusTemperature.detailTextLabel.text = nodataString
+        self.atmosphericTemperature.detailTextLabel.text = nodataString
+        self.humidityCell.detailTextLabel.text = nodataString
         
     }
     // MARK: - Table view data source
