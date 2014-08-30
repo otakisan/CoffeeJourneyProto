@@ -626,6 +626,18 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="acidityCell" destination="Mgu-C7-Qot" id="eKM-tD-yWp"/>
+                        <outlet property="aromaCell" destination="oSN-fj-BQz" id="r7B-H2-GMp"/>
+                        <outlet property="atmosphericTemperature" destination="DBU-V7-6PB" id="rOo-XF-QtN"/>
+                        <outlet property="beanNameCell" destination="PrU-Vq-oDP" id="Anf-PI-c3Z"/>
+                        <outlet property="bodyCell" destination="Mgu-C7-Qot" id="m4k-GS-iau"/>
+                        <outlet property="brewingMethodCell" destination="Wpo-je-WYZ" id="9LV-2K-Uaf"/>
+                        <outlet property="commentCell" destination="e7I-s6-PMe" id="S1H-Y4-O5v"/>
+                        <outlet property="flavorCell" destination="VSj-0z-Ref" id="KHu-La-knc"/>
+                        <outlet property="humidityCell" destination="Kh8-V3-9G3" id="anb-ik-a5c"/>
+                        <outlet property="liquidusTemperature" destination="oNO-RX-hX8" id="lRY-ED-ewD"/>
+                        <outlet property="memoIdCell" destination="z79-9g-k4z" id="jwu-PE-eWk"/>
+                        <outlet property="placeCell" destination="z7c-5S-CVl" id="NKt-ck-SXu"/>
                         <outlet property="tastingDateCell" destination="Z9e-4Y-ReN" id="Bg0-As-LZx"/>
                     </connections>
                 </tableViewController>

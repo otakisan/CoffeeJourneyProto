@@ -57,7 +57,7 @@ class JourneyLogEditorViewController: UIViewController {
         }
         else{
             // 新規作成時
-            self.memoIdTextField.text = getMemoId()
+            self.memoIdTextField.text = CoffeeMemoService.getMemoId()
             self.tastingDateTextField.text = DateUtility.sharedInstance.toDisplayDateString(NSDate())
         }
     }
@@ -67,14 +67,14 @@ class JourneyLogEditorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func getMemoId() -> String {
-        var prefix = "CJL"
-        var formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyyMMdd_HHmmss.SSS"
-        var timestamp = formatter.stringFromDate(NSDate())
-        
-        return "\(prefix)_\(timestamp)"
-    }
+//    private func getMemoId() -> String {
+//        var prefix = "CJL"
+//        var formatter = NSDateFormatter()
+//        formatter.dateFormat = "yyyyMMdd_HHmmss.SSS"
+//        var timestamp = formatter.stringFromDate(NSDate())
+//        
+//        return "\(prefix)_\(timestamp)"
+//    }
     
     private func getManagedObjectContext() -> NSManagedObjectContext {
         

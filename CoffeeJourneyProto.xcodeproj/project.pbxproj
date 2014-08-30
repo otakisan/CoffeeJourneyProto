@@ -20,6 +20,7 @@
 		16059622199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */; };
 		16B7BD6F19A9C73800E387F0 /* CoffeeMemoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7BD6E19A9C73800E387F0 /* CoffeeMemoEntity.swift */; };
 		16B7BD7119B19A3C00E387F0 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7BD7019B19A3C00E387F0 /* DatePickerViewController.swift */; };
+		16B7BD7419B1FCC500E387F0 /* CoffeeMemoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7BD7319B1FCC500E387F0 /* CoffeeMemoService.swift */; };
 		16B9EFAB199EEDA200829F47 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9EFAA199EEDA200829F47 /* DateUtility.swift */; };
 		16B9EFAE199EFB3C00829F47 /* CoffeeMemoSearchCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9EFAD199EFB3C00829F47 /* CoffeeMemoSearchCondition.swift */; };
 		16B9EFB3199F118400829F47 /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9EFB1199F0B9900829F47 /* StringUtility.swift */; };
@@ -58,6 +59,7 @@
 		16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultMainMenuTableViewCell.swift; sourceTree = "<group>"; };
 		16B7BD6E19A9C73800E387F0 /* CoffeeMemoEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMemoEntity.swift; sourceTree = "<group>"; };
 		16B7BD7019B19A3C00E387F0 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		16B7BD7319B1FCC500E387F0 /* CoffeeMemoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMemoService.swift; sourceTree = "<group>"; };
 		16B9EFAA199EEDA200829F47 /* DateUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		16B9EFAD199EFB3C00829F47 /* CoffeeMemoSearchCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMemoSearchCondition.swift; sourceTree = "<group>"; };
 		16B9EFAF199EFCA200829F47 /* CoffeeMemoContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMemoContext.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		160595F1199C9D6D004F5978 /* CoffeeJourneyProto */ = {
 			isa = PBXGroup;
 			children = (
+				16B7BD7219B1FC4C00E387F0 /* Services */,
 				16B9EFAC199EFA2800829F47 /* Data */,
 				16B9EFA9199EED2000829F47 /* Utilities */,
 				16059618199CAAA6004F5978 /* Views */,
@@ -175,6 +178,14 @@
 				16B7BD6E19A9C73800E387F0 /* CoffeeMemoEntity.swift */,
 			);
 			path = V2;
+			sourceTree = "<group>";
+		};
+		16B7BD7219B1FC4C00E387F0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				16B7BD7319B1FCC500E387F0 /* CoffeeMemoService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		16B9EFA9199EED2000829F47 /* Utilities */ = {
@@ -309,6 +320,7 @@
 				16059620199CB269004F5978 /* SearchResultTableViewController.swift in Sources */,
 				160595F5199C9D6D004F5978 /* AppDelegate.swift in Sources */,
 				1605961C199CAF65004F5978 /* SearchConditionViewController.swift in Sources */,
+				16B7BD7419B1FCC500E387F0 /* CoffeeMemoService.swift in Sources */,
 				16B9EFB819A993F000829F47 /* CJLEditorTableViewController.swift in Sources */,
 				160595F8199C9D6D004F5978 /* CoffeeJourneyProto.xcdatamodeld in Sources */,
 			);

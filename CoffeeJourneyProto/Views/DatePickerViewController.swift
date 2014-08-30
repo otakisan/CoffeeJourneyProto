@@ -45,10 +45,6 @@ class DatePickerViewController: UIViewController {
 //        self.navigationController.popViewControllerAnimated(true)
 //    }
     
-    func goToRoot(segue : UIStoryboardSegue)
-    {
-        NSLog("Called goToRoot: unwind action")
-    }
 
     func didDoneButton(sender : AnyObject){
 //        self.navigationController.popViewControllerAnimated(true)

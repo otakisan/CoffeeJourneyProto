@@ -10,7 +10,23 @@ import UIKit
 
 class CJLEditorTableViewController: UITableViewController {
 
+    @IBOutlet weak var memoIdCell: UITableViewCell!
     @IBOutlet weak var tastingDateCell: UITableViewCell!
+    @IBOutlet weak var beanNameCell: UITableViewCell!
+    @IBOutlet weak var brewingMethodCell: UITableViewCell!
+    @IBOutlet weak var aromaCell: UITableViewCell!
+    @IBOutlet weak var acidityCell: UITableViewCell!
+    @IBOutlet weak var bodyCell: UITableViewCell!
+    @IBOutlet weak var flavorCell: UITableViewCell!
+    @IBOutlet weak var commentCell: UITableViewCell!
+    @IBOutlet weak var placeCell: UITableViewCell!
+    @IBOutlet weak var liquidusTemperature: UITableViewCell!
+    @IBOutlet weak var atmosphericTemperature: UITableViewCell!
+    @IBOutlet weak var humidityCell: UITableViewCell!
+    
+    var memoId : String?
+    let nodataString = "[No Data]"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +35,13 @@ class CJLEditorTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        if(self.memoId != nil){
+            
+        }
+        else{
+            self.initializeViewData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +49,13 @@ class CJLEditorTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func initializeViewData(){
+        self.memoIdCell.detailTextLabel.text = CoffeeMemoService.getMemoId()
+        self.tastingDateCell.detailTextLabel.text = DateUtility.sharedInstance.toDisplayDateString(NSDate())
+        self.beanNameCell.detailTextLabel.text = nodataString
+        self.brewingMethodCell.detailTextLabel.text = nodataString
+        
+    }
     // MARK: - Table view data source
 
 //    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
@@ -131,5 +161,9 @@ class CJLEditorTableViewController: UITableViewController {
         cell.detailTextLabel.text = dateView.dateString
     }
     
+    @IBAction func goToRoot(segue : UIStoryboardSegue)
+    {
+        NSLog("Called goToRoot: unwind action")
+    }
 
 }
