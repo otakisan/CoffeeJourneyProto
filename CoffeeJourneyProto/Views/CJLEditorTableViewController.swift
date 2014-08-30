@@ -10,6 +10,7 @@ import UIKit
 
 class CJLEditorTableViewController: UITableViewController {
 
+    @IBOutlet weak var tastingDateCell: UITableViewCell!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -83,15 +84,52 @@ class CJLEditorTableViewController: UITableViewController {
         return true
     }
     */
+    
+    override func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath:NSIndexPath!) {
+        
+//        switch(indexPath.row){
+//        case 2:
+//            self.performSegueWithIdentifier("showTastingDateViewSegue", sender: self)
+//        default:
+//            NSLog("")
+//        }
+    }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        switch segue.identifier! {
+        case "showTastingDateViewSegue":
+            var destView = segue.destinationViewController as DatePickerViewController
+            destView.tagString = "tastingDateCell"
+        default:
+            break
+        }
+        
     }
-    */
+    
+    // 再び表示された、だけだとコンテキストを絞るのが大変そうなので、使用しない
+//    override func viewDidAppear(animated: Bool) {
+//        if(self.tableView.numberOfRowsInSection(0) > 1){
+//            var cell = self.tastingDateCell
+//            cell.detailTextLabel.text = "" + cell.detailTextLabel.text + "a"
+//            
+//        }
+//    }
+    
+    @IBAction func datePickerViewReturnActionForSegue(segue : UIStoryboardSegue)
+    {
+        NSLog(segue.sourceViewController.title)
+        NSLog("First view return action invoked.")
+        
+        var dateView = segue.sourceViewController as DatePickerViewController
+        var cell : UITableViewCell = self.valueForKey(dateView.tagString) as UITableViewCell
+        cell.detailTextLabel.text = dateView.dateString
+    }
+    
 
 }

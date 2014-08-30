@@ -41,7 +41,7 @@ class JourneyLogEditorViewController: UIViewController {
     
     @IBAction func unwind(sender: UIStoryboardSegue) {
         // ↓を実行すると戻るけど、ダイアログが表示されない
-//        self.navigationController.popViewControllerAnimated(true)
+        self.navigationController.popViewControllerAnimated(true)
     }
     
     override func viewDidLoad() {
