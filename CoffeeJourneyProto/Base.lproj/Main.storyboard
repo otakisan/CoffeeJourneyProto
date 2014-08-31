@@ -439,6 +439,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="UxE-VW-DGc" kind="show" identifier="showMethodPickerViewSegue" id="1nV-nZ-ZdP"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="6x5-HA-iKH" detailTextLabel="O6U-bg-OnP" style="IBUITableViewCellStyleValue1" id="oSN-fj-BQz">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -459,6 +462,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="0sa-GL-IcN" kind="show" identifier="showAromaTextViewSegue" id="k2l-Ia-ALm"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="O3A-qR-AFN" detailTextLabel="zok-7g-kDO" style="IBUITableViewCellStyleValue1" id="Mgu-C7-Qot">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -816,7 +822,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="1nV-nZ-ZdP"/>
         <segue reference="exE-36-k64"/>
         <segue reference="2kG-rR-GNn"/>
+        <segue reference="k2l-Ia-ALm"/>
     </inferredMetricsTieBreakers>
 </document>

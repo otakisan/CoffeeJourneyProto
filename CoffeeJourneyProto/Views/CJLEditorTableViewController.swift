@@ -25,7 +25,7 @@ class CJLEditorTableViewController: UITableViewController {
     @IBOutlet weak var humidityCell: UITableViewCell!
     
     var memoId : String?
-    let nodataString = "[No Data]"
+    let nodataString = "[No Data]"//空文字列にすると、テキストビューなんかから返ってきたときに値が表示されない。ただ、その項目を選択（押しっぱなしでも）すると表示される
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -154,9 +154,20 @@ class CJLEditorTableViewController: UITableViewController {
             pickerView.pickerViewItems = [
                 "Willow Blend","Lightnote Blend","Breakfast Blend","Pike Place Roast","Guatemala Antigua","Kenya","House Blend","Ethiopia","Colombia","Sumatra","Komodo Dragon Blend","Decaf Komodo Dragon Blend","Caffe Verona","Espresso Roast","Italian Roast","French Roast","Anniversary Blend","Autumn Blend","Malawi Peaberry","Maui Mokka","Peru Chonti"
             ]
-            
             // TODO 現在値の反映
             
+        case "showMethodPickerViewSegue":
+            var pickerView = segue.destinationViewController as PickerViewController
+            pickerView.tagString = "brewingMethodCell"
+            pickerView.pickerViewItems = [
+                "Drip(Machine)", "French Press", "Espresso", "Pour Over", "Instant"
+            ]
+            // TODO 現在値の反映
+            
+        case "showAromaTextViewSegue":
+            var textView = segue.destinationViewController as TextViewController
+            textView.tagString = "aromaCell"
+            textView.inputText = self.aromaCell.detailTextLabel.text
         case "showCommentTextViewSegue":
             var textView = segue.destinationViewController as TextViewController
             textView.tagString = "commentCell"
