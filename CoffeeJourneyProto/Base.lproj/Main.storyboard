@@ -485,6 +485,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="UxE-VW-DGc" kind="show" identifier="showAcidityPickerViewSegue" id="Mvp-jw-CFx"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="WQl-GO-KoP" detailTextLabel="yzZ-fa-bfT" style="IBUITableViewCellStyleValue1" id="VSj-0z-Ref">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -505,6 +508,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="UxE-VW-DGc" kind="show" identifier="showBodyPickerViewSegue" id="w8z-mZ-FKu"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="kVD-DB-eUT" detailTextLabel="WJD-Un-U3e" style="IBUITableViewCellStyleValue1" id="P0N-1q-VVs">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -525,6 +531,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="UxE-VW-DGc" kind="show" identifier="showFlavorPickerViewSegue" id="ODf-vk-VSa"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="cuw-04-xa2" detailTextLabel="ICX-Qm-B7A" style="IBUITableViewCellStyleValue1" id="e7I-s6-PMe">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -568,6 +577,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="0sa-GL-IcN" kind="show" identifier="showPlaceTextViewSegue" id="fU0-tI-cRZ"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="i17-Jx-QOk" detailTextLabel="tpG-PT-j6e" style="IBUITableViewCellStyleValue1" id="oNO-RX-hX8">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -588,6 +600,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="UxE-VW-DGc" kind="show" identifier="showLiquidusTemperaturePickerViewSegue" id="XG9-94-ALA"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="qQo-EG-3gy" detailTextLabel="BR8-bv-wAW" style="IBUITableViewCellStyleValue1" id="DBU-V7-6PB">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -608,6 +623,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="UxE-VW-DGc" kind="show" identifier="showAtmosphericTemperaturePickerViewSegue" id="q3w-AJ-mJ2"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="B83-HA-k8R" detailTextLabel="REX-4W-5Qr" style="IBUITableViewCellStyleValue1" id="Kh8-V3-9G3">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -628,6 +646,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="UxE-VW-DGc" kind="show" identifier="showHumidityPickerViewSegue" id="b38-dv-ddj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -640,14 +661,14 @@
                     <connections>
                         <outlet property="acidityCell" destination="Mgu-C7-Qot" id="eKM-tD-yWp"/>
                         <outlet property="aromaCell" destination="oSN-fj-BQz" id="r7B-H2-GMp"/>
-                        <outlet property="atmosphericTemperature" destination="DBU-V7-6PB" id="rOo-XF-QtN"/>
+                        <outlet property="atmosphericTemperatureCell" destination="DBU-V7-6PB" id="8Xz-da-z2D"/>
                         <outlet property="beanNameCell" destination="PrU-Vq-oDP" id="Anf-PI-c3Z"/>
                         <outlet property="bodyCell" destination="VSj-0z-Ref" id="h9h-yr-cgI"/>
                         <outlet property="brewingMethodCell" destination="Wpo-je-WYZ" id="9LV-2K-Uaf"/>
                         <outlet property="commentCell" destination="e7I-s6-PMe" id="S1H-Y4-O5v"/>
                         <outlet property="flavorCell" destination="P0N-1q-VVs" id="8eE-gF-AQO"/>
                         <outlet property="humidityCell" destination="Kh8-V3-9G3" id="anb-ik-a5c"/>
-                        <outlet property="liquidusTemperature" destination="oNO-RX-hX8" id="lRY-ED-ewD"/>
+                        <outlet property="liquidusTemperatureCell" destination="oNO-RX-hX8" id="f7N-Ot-Fc2"/>
                         <outlet property="memoIdCell" destination="z79-9g-k4z" id="jwu-PE-eWk"/>
                         <outlet property="placeCell" destination="z7c-5S-CVl" id="NKt-ck-SXu"/>
                         <outlet property="tastingDateCell" destination="Z9e-4Y-ReN" id="Bg0-As-LZx"/>
@@ -822,9 +843,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1nV-nZ-ZdP"/>
+        <segue reference="b38-dv-ddj"/>
         <segue reference="exE-36-k64"/>
         <segue reference="2kG-rR-GNn"/>
-        <segue reference="k2l-Ia-ALm"/>
+        <segue reference="fU0-tI-cRZ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -20,8 +20,8 @@ class CJLEditorTableViewController: UITableViewController {
     @IBOutlet weak var flavorCell: UITableViewCell!
     @IBOutlet weak var commentCell: UITableViewCell!
     @IBOutlet weak var placeCell: UITableViewCell!
-    @IBOutlet weak var liquidusTemperature: UITableViewCell!
-    @IBOutlet weak var atmosphericTemperature: UITableViewCell!
+    @IBOutlet weak var liquidusTemperatureCell: UITableViewCell!
+    @IBOutlet weak var atmosphericTemperatureCell: UITableViewCell!
     @IBOutlet weak var humidityCell: UITableViewCell!
     
     var memoId : String?
@@ -61,8 +61,8 @@ class CJLEditorTableViewController: UITableViewController {
         self.flavorCell.detailTextLabel.text = nodataString
         self.commentCell.detailTextLabel.text = nodataString
         self.placeCell.detailTextLabel.text = nodataString
-        self.liquidusTemperature.detailTextLabel.text = nodataString
-        self.atmosphericTemperature.detailTextLabel.text = nodataString
+        self.liquidusTemperatureCell.detailTextLabel.text = nodataString
+        self.atmosphericTemperatureCell.detailTextLabel.text = nodataString
         self.humidityCell.detailTextLabel.text = nodataString
         
     }
@@ -142,6 +142,9 @@ class CJLEditorTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        // 種類ごとに処理は決まってくるので、Dictionaryなんかを使ってまとめられるけど、
+        // しばらく個別に処理して、それでも汎用化できそうであればする。
         switch segue.identifier! {
             
         case "showTastingDateViewSegue":
@@ -154,15 +157,56 @@ class CJLEditorTableViewController: UITableViewController {
             pickerView.pickerViewItems = [
                 "Willow Blend","Lightnote Blend","Breakfast Blend","Pike Place Roast","Guatemala Antigua","Kenya","House Blend","Ethiopia","Colombia","Sumatra","Komodo Dragon Blend","Decaf Komodo Dragon Blend","Caffe Verona","Espresso Roast","Italian Roast","French Roast","Anniversary Blend","Autumn Blend","Malawi Peaberry","Maui Mokka","Peru Chonti"
             ]
-            // TODO 現在値の反映
-            
+            pickerView.selectedItem = self.beanNameCell.detailTextLabel.text
         case "showMethodPickerViewSegue":
             var pickerView = segue.destinationViewController as PickerViewController
             pickerView.tagString = "brewingMethodCell"
             pickerView.pickerViewItems = [
                 "Drip(Machine)", "French Press", "Espresso", "Pour Over", "Instant"
             ]
-            // TODO 現在値の反映
+            pickerView.selectedItem = self.brewingMethodCell.detailTextLabel.text
+        case "showAcidityPickerViewSegue":
+            var pickerView = segue.destinationViewController as PickerViewController
+            pickerView.tagString = "acidityCell"
+            pickerView.pickerViewItems = [
+                "High", "Medium", "Low"
+            ]
+            pickerView.selectedItem = self.acidityCell.detailTextLabel.text
+        case "showBodyPickerViewSegue":
+            var pickerView = segue.destinationViewController as PickerViewController
+            pickerView.tagString = "bodyCell"
+            pickerView.pickerViewItems = [
+                "Full", "Medium", "Light"
+            ]
+            pickerView.selectedItem = self.bodyCell.detailTextLabel.text
+        case "showFlavorPickerViewSegue":
+            var pickerView = segue.destinationViewController as PickerViewController
+            pickerView.tagString = "flavorCell"
+            pickerView.pickerViewItems = [
+                "Bright", "Complex", "Crisp", "Herbal", "Spicy", "Dark Cocoa", "Citrus"
+            ]
+            pickerView.selectedItem = self.flavorCell.detailTextLabel.text
+        case "showLiquidusTemperaturePickerViewSegue":
+            var pickerView = segue.destinationViewController as PickerViewController
+            pickerView.tagString = "liquidusTemperatureCell"
+            pickerView.pickerViewItems = [
+                "Very Hot", "Hot", "Light Hot", "Lukewarm", "Cold", "Very Cold"
+            ]
+            pickerView.selectedItem = self.liquidusTemperatureCell.detailTextLabel.text
+        case "showAtmosphericTemperaturePickerViewSegue":
+            var pickerView = segue.destinationViewController as PickerViewController
+            pickerView.tagString = "atmosphericTemperatureCell"
+            pickerView.pickerViewItems = [
+                "More Than 30", "28-30", "26-28", "24-26", "22-24", "20-22", "18-20", "16-18", "14-16", "12-14", "10-12", "Less Than 10"
+            ]
+            pickerView.selectedItem = self.atmosphericTemperatureCell.detailTextLabel.text
+        case "showHumidityPickerViewSegue":
+            var pickerView = segue.destinationViewController as PickerViewController
+            pickerView.tagString = "humidityCell"
+            pickerView.pickerViewItems = [
+                "100", "90", "80", "70", "60", "50", "40", "30", "20", "10", "0"
+            ]
+            pickerView.selectedItem = self.humidityCell.detailTextLabel.text
             
         case "showAromaTextViewSegue":
             var textView = segue.destinationViewController as TextViewController
@@ -172,6 +216,10 @@ class CJLEditorTableViewController: UITableViewController {
             var textView = segue.destinationViewController as TextViewController
             textView.tagString = "commentCell"
             textView.inputText = self.commentCell.detailTextLabel.text
+        case "showPlaceTextViewSegue":
+            var textView = segue.destinationViewController as TextViewController
+            textView.tagString = "placeCell"
+            textView.inputText = self.placeCell.detailTextLabel.text
             
         default:
             break

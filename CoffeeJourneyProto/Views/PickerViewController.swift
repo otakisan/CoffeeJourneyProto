@@ -26,7 +26,7 @@ class PickerViewController: UIViewController {
         // Do any additional setup after loading the view.
         // 行もコンポーネントもインデックスはゼロ基点
         self.pickerView.selectRow(pickerViewItems.count / 2, inComponent: 0, animated: true)
-        self.selectedItemTextField.text = pickerViewItems[pickerViewItems.count / 2]
+        self.selectedItemTextField.text = self.selectedItem == "" ? pickerViewItems[pickerViewItems.count / 2] : self.selectedItem
     }
 
     override func didReceiveMemoryWarning() {
