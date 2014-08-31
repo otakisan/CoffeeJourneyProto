@@ -416,6 +416,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="UxE-VW-DGc" kind="show" identifier="showBeanPickerViewSegue" id="t4c-pV-rnW"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="huP-jg-2kd" detailTextLabel="NY4-Gw-pwp" style="IBUITableViewCellStyleValue1" id="Wpo-je-WYZ">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -683,6 +686,59 @@
                 <exit id="5v7-og-mEq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2528" y="2414"/>
+        </scene>
+        <!--Picker View Controller-->
+        <scene sceneID="I9s-7J-EjE">
+            <objects>
+                <viewController id="UxE-VW-DGc" customClass="PickerViewController" customModule="CoffeeJourneyProto" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aBt-eM-G2d"/>
+                        <viewControllerLayoutGuide type="bottom" id="iNk-zD-wRX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PAs-9v-vGj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FrW-Jw-Nsh">
+                                <rect key="frame" x="0.0" y="66" width="320" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="UxE-VW-DGc" id="gvY-kJ-d16"/>
+                                    <outlet property="delegate" destination="UxE-VW-DGc" id="sPW-KC-LA6"/>
+                                </connections>
+                            </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cYy-Na-vNM">
+                                <rect key="frame" x="16" y="269" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7w-Yt-JtE">
+                                <rect key="frame" x="16" y="316" width="30" height="30"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jvq-Kk-ZAR" kind="unwind" unwindAction="pickerViewReturnActionForSegue:" id="tTF-8v-kiw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
+                        <size key="portraitSize" width="320" height="568"/>
+                        <size key="landscapeSize" width="568" height="320"/>
+                    </simulatedScreenMetrics>
+                    <connections>
+                        <outlet property="pickerView" destination="FrW-Jw-Nsh" id="aXr-R1-nOs"/>
+                        <outlet property="selectedItemTextField" destination="cYy-Na-vNM" id="kvn-xj-iie"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Of8-1S-0o6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="jvq-Kk-ZAR" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2528" y="3110"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Swv-5w-32Z">

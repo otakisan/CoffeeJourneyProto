@@ -146,6 +146,13 @@ class CJLEditorTableViewController: UITableViewController {
         case "showTastingDateViewSegue":
             var destView = segue.destinationViewController as DatePickerViewController
             destView.tagString = "tastingDateCell"
+        case "showBeanPickerViewSegue":
+            var pickerView = segue.destinationViewController as PickerViewController
+            pickerView.tagString = "beanNameCell"
+            pickerView.pickerViewItems = [
+                "Willow Blend","Lightnote Blend","Breakfast Blend","Pike Place Roast","Guatemala Antigua","Kenya","House Blend","Ethiopia","Colombia","Sumatra","Komodo Dragon Blend","Decaf Komodo Dragon Blend","Caffe Verona","Espresso Roast","Italian Roast","French Roast","Anniversary Blend","Autumn Blend","Malawi Peaberry","Maui Mokka","Peru Chonti"
+            ]
+
         default:
             break
         }
@@ -169,6 +176,13 @@ class CJLEditorTableViewController: UITableViewController {
         var dateView = segue.sourceViewController as DatePickerViewController
         var cell : UITableViewCell = self.valueForKey(dateView.tagString) as UITableViewCell
         cell.detailTextLabel.text = dateView.dateString
+    }
+    
+    @IBAction func pickerViewReturnActionForSegue(segue : UIStoryboardSegue){
+        var pickerView = segue.sourceViewController as PickerViewController
+        var cell : UITableViewCell = self.valueForKey(pickerView.tagString) as UITableViewCell
+        cell.detailTextLabel.text = pickerView.selectedItem
+        
     }
     
     @IBAction func goToRoot(segue : UIStoryboardSegue)
