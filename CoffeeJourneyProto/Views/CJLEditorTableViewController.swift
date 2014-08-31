@@ -28,7 +28,7 @@ class CJLEditorTableViewController: UITableViewController {
     var memoId : String?
     var existingCoffeeMemo : CoffeeMemoEntity?
 
-    let nodataString = "[No Data]"//空文字列にすると、テキストビューなんかから返ってきたときに値が表示されない。ただ、その項目を選択（押しっぱなしでも）すると表示される
+    let nodataString = " "//空文字列にすると、テキストビューなんかから返ってきたときに値が表示されない。ただ、その項目を選択（押しっぱなしでも）すると表示される
     
     override func viewDidLoad() {
         super.viewDidLoad()
