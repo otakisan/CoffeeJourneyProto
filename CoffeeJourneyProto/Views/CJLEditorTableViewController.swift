@@ -143,16 +143,25 @@ class CJLEditorTableViewController: UITableViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         switch segue.identifier! {
+            
         case "showTastingDateViewSegue":
             var destView = segue.destinationViewController as DatePickerViewController
             destView.tagString = "tastingDateCell"
+            
         case "showBeanPickerViewSegue":
             var pickerView = segue.destinationViewController as PickerViewController
             pickerView.tagString = "beanNameCell"
             pickerView.pickerViewItems = [
                 "Willow Blend","Lightnote Blend","Breakfast Blend","Pike Place Roast","Guatemala Antigua","Kenya","House Blend","Ethiopia","Colombia","Sumatra","Komodo Dragon Blend","Decaf Komodo Dragon Blend","Caffe Verona","Espresso Roast","Italian Roast","French Roast","Anniversary Blend","Autumn Blend","Malawi Peaberry","Maui Mokka","Peru Chonti"
             ]
-
+            
+            // TODO 現在値の反映
+            
+        case "showCommentTextViewSegue":
+            var textView = segue.destinationViewController as TextViewController
+            textView.tagString = "commentCell"
+            textView.inputText = self.commentCell.detailTextLabel.text
+            
         default:
             break
         }
@@ -182,7 +191,12 @@ class CJLEditorTableViewController: UITableViewController {
         var pickerView = segue.sourceViewController as PickerViewController
         var cell : UITableViewCell = self.valueForKey(pickerView.tagString) as UITableViewCell
         cell.detailTextLabel.text = pickerView.selectedItem
-        
+    }
+    
+    @IBAction func textViewReturnActionForSegue(segue : UIStoryboardSegue){
+        var textView = segue.sourceViewController as TextViewController
+        var cell : UITableViewCell = self.valueForKey(textView.tagString) as UITableViewCell
+        cell.detailTextLabel.text = textView.inputText
     }
     
     @IBAction func goToRoot(segue : UIStoryboardSegue)

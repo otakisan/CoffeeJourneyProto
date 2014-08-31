@@ -18,6 +18,7 @@
 		1605961E199CB118004F5978 /* JourneyLogEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605961D199CB118004F5978 /* JourneyLogEditorViewController.swift */; };
 		16059620199CB269004F5978 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605961F199CB269004F5978 /* SearchResultTableViewController.swift */; };
 		16059622199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */; };
+		1649CEF019B2BD89009C8EDB /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1649CEEF19B2BD89009C8EDB /* TextViewController.swift */; };
 		16B7BD6F19A9C73800E387F0 /* CoffeeMemoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7BD6E19A9C73800E387F0 /* CoffeeMemoEntity.swift */; };
 		16B7BD7119B19A3C00E387F0 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7BD7019B19A3C00E387F0 /* DatePickerViewController.swift */; };
 		16B7BD7419B1FCC500E387F0 /* CoffeeMemoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B7BD7319B1FCC500E387F0 /* CoffeeMemoService.swift */; };
@@ -58,6 +59,7 @@
 		1605961D199CB118004F5978 /* JourneyLogEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JourneyLogEditorViewController.swift; sourceTree = "<group>"; };
 		1605961F199CB269004F5978 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
 		16059621199CCD79004F5978 /* DefaultMainMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultMainMenuTableViewCell.swift; sourceTree = "<group>"; };
+		1649CEEF19B2BD89009C8EDB /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		16B7BD6E19A9C73800E387F0 /* CoffeeMemoEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMemoEntity.swift; sourceTree = "<group>"; };
 		16B7BD7019B19A3C00E387F0 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		16B7BD7319B1FCC500E387F0 /* CoffeeMemoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeMemoService.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				16B9EFB719A993F000829F47 /* CJLEditorTableViewController.swift */,
 				16B7BD7019B19A3C00E387F0 /* DatePickerViewController.swift */,
 				16CC926319B28A830021B815 /* PickerViewController.swift */,
+				1649CEEF19B2BD89009C8EDB /* TextViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				1605961C199CAF65004F5978 /* SearchConditionViewController.swift in Sources */,
 				16B7BD7419B1FCC500E387F0 /* CoffeeMemoService.swift in Sources */,
 				16B9EFB819A993F000829F47 /* CJLEditorTableViewController.swift in Sources */,
+				1649CEF019B2BD89009C8EDB /* TextViewController.swift in Sources */,
 				160595F8199C9D6D004F5978 /* CoffeeJourneyProto.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
