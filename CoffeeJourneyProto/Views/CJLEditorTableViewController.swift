@@ -25,6 +25,8 @@ class CJLEditorTableViewController: UITableViewController {
     @IBOutlet weak var humidityCell: UITableViewCell!
     
     var memoId : String?
+    var existingCoffeeMemo : CoffeeMemoEntity?
+
     let nodataString = "[No Data]"//空文字列にすると、テキストビューなんかから返ってきたときに値が表示されない。ただ、その項目を選択（押しっぱなしでも）すると表示される
     
     override func viewDidLoad() {
@@ -34,7 +36,8 @@ class CJLEditorTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        var selector : Selector = "didDoneButton:"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: selector)
         
         if(self.memoId != nil){
             
@@ -258,6 +261,39 @@ class CJLEditorTableViewController: UITableViewController {
         cell.detailTextLabel.text = textView.inputText
     }
     
+    func didDoneButton(sender : AnyObject){
+        saveJourneyLogObject()
+    }
+    
+    private func saveJourneyLogObject(){
+        
+        // データ項目が多くなってきた場合の対処方法
+        if(self.existingCoffeeMemo == nil){
+            self.existingCoffeeMemo = CoffeeMemoService.createEntity()
+        }
+
+        self.existingCoffeeMemo!.memoId = self.memoIdCell.detailTextLabel.text
+        self.existingCoffeeMemo!.tastingDate = DateUtility.sharedInstance.toDateFromDisplayString(self.tastingDateCell.detailTextLabel.text)
+        self.existingCoffeeMemo!.beanName = self.beanNameCell.detailTextLabel.text
+        self.existingCoffeeMemo!.brewingMethod = self.brewingMethodCell.detailTextLabel.text
+        self.existingCoffeeMemo!.aroma = self.aromaCell.detailTextLabel.text
+        self.existingCoffeeMemo!.acidity = self.acidityCell.detailTextLabel.text
+        self.existingCoffeeMemo!.body = self.bodyCell.detailTextLabel.text
+        self.existingCoffeeMemo!.flavor = self.flavorCell.detailTextLabel.text
+        self.existingCoffeeMemo!.comment = self.commentCell.detailTextLabel.text
+        self.existingCoffeeMemo!.place = self.placeCell.detailTextLabel.text
+        self.existingCoffeeMemo!.liquidusTemperature = self.liquidusTemperatureCell.detailTextLabel.text
+        self.existingCoffeeMemo!.atmosphericTemperature = self.atmosphericTemperatureCell.detailTextLabel.text
+        self.existingCoffeeMemo!.humidity = self.humidityCell.detailTextLabel.text
+        
+        CoffeeMemoService.getManagedObjectContext().save(nil)
+        
+        println(self.existingCoffeeMemo!)
+        println("Object Saved")
+        
+        ViewUtility.showMessageDialog(self, title: "log saved", message: "saved : \(self.existingCoffeeMemo!.memoId)")
+    }
+
     @IBAction func goToRoot(segue : UIStoryboardSegue)
     {
         NSLog("Called goToRoot: unwind action")

@@ -55,7 +55,7 @@ class SearchResultTableViewController: UITableViewController {
         cell.textLabel.text = self.searchResult[indexPath.row].comment
         
         var dateForSubtitle = DateUtility.sharedInstance.toSubtitleDateString(self.searchResult[indexPath.row].tastingDate)
-        cell.detailTextLabel.text = dateForSubtitle + " " + self.searchResult[indexPath.row].beanName + ", " + self.searchResult[indexPath.row].brewingMethod + "_" + self.searchResult[indexPath.row].place
+        cell.detailTextLabel.text = dateForSubtitle + " " + self.searchResult[indexPath.row].beanName + ", " + self.searchResult[indexPath.row].brewingMethod + ", " + self.searchResult[indexPath.row].place
         
         return cell
     }

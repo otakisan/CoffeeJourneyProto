@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CoffeeMemoService: NSObject {
     
@@ -17,6 +18,21 @@ class CoffeeMemoService: NSObject {
         var timestamp = formatter.stringFromDate(NSDate())
         
         return "\(prefix)_\(timestamp)"
+    }
+    
+    class func getManagedObjectContext() -> NSManagedObjectContext {
+        
+        var appDel : AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        var context : NSManagedObjectContext = appDel.managedObjectContext!
+        
+        return context
+    }
+    
+    class func createEntity() -> CoffeeMemoEntity {
+        var context : NSManagedObjectContext = CoffeeMemoService.getManagedObjectContext()
+        let ent = NSEntityDescription.entityForName("CoffeeMemoEntity", inManagedObjectContext: context)
+        
+        return CoffeeMemoEntity(entity: ent, insertIntoManagedObjectContext: context)
     }
    
 }

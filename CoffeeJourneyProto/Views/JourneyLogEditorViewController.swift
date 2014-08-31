@@ -117,7 +117,6 @@ class JourneyLogEditorViewController: UIViewController {
         self.existingCoffeeMemo!.body = self.bodyTextField.text
         self.existingCoffeeMemo!.flavor = self.flavorTextField.text
         self.existingCoffeeMemo!.comment = self.commentTextField.text
-        self.existingCoffeeMemo!.place = "test place"
         
         context.save(nil)
         
