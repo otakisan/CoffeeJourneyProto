@@ -117,6 +117,12 @@ class JourneyLogEditorViewController: UIViewController {
         self.existingCoffeeMemo!.body = self.bodyTextField.text
         self.existingCoffeeMemo!.flavor = self.flavorTextField.text
         self.existingCoffeeMemo!.comment = self.commentTextField.text
+//        self.existingCoffeeMemo!.place = ""
+//        self.existingCoffeeMemo!.liquidusTemperature = ""
+//        self.existingCoffeeMemo!.atmosphericTemperature = ""
+//        self.existingCoffeeMemo!.humidity = ""
+//        self.existingCoffeeMemo!.createdDate = NSDate()
+//        self.existingCoffeeMemo!.lastUpdatedDate = NSDate()
         
         context.save(nil)
         
