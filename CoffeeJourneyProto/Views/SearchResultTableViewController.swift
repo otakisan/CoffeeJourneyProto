@@ -16,6 +16,8 @@ class SearchResultTableViewController: UITableViewController {
     var searchResult : [CoffeeMemoEntity] = []
     var fetchLimit : Int = 0
     
+//    let showLogEditorSegueId = "showJourneyLogEditorSegue"
+    let showLogEditorSegueId = "showJourneyLogEditorV2Segue"
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -109,7 +111,7 @@ class SearchResultTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath:NSIndexPath!) {
         
-        self.performSegueWithIdentifier("showJourneyLogEditorSegue", sender: self)
+        self.performSegueWithIdentifier(showLogEditorSegueId, sender: self)
     }
     
     
@@ -120,10 +122,16 @@ class SearchResultTableViewController: UITableViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        var vc = segue.destinationViewController as JourneyLogEditorViewController
-//        var selectedCell = self.tableView.cellForRowAtIndexPath(self.tableView.indexPathForSelectedRow())
-//        vc.memoId = selectedCell.textLabel.text
-        vc.memoId = self.searchResult[self.tableView.indexPathForSelectedRow().row].memoId
+        switch segue.identifier! {
+            case "showJourneyLogEditorSegue":
+                var vc = segue.destinationViewController as JourneyLogEditorViewController
+                vc.memoId = self.searchResult[self.tableView.indexPathForSelectedRow().row].memoId
+        case "showJourneyLogEditorV2Segue":
+            var vc = segue.destinationViewController as CJLEditorTableViewController
+            vc.memoId = self.searchResult[self.tableView.indexPathForSelectedRow().row].memoId
+        default:
+            break
+        }
     }
     
     

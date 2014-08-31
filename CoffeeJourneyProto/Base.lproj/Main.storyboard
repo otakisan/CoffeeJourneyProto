@@ -196,6 +196,7 @@
                     </tableView>
                     <connections>
                         <segue destination="72Q-O1-plP" kind="show" identifier="showJourneyLogEditorSegue" id="oKE-ho-v9v"/>
+                        <segue destination="aEq-uQ-Hfy" kind="show" identifier="showJourneyLogEditorV2Segue" id="x7E-bX-lBS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6iP-mm-WCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -844,8 +845,9 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="b38-dv-ddj"/>
+        <segue reference="x7E-bX-lBS"/>
         <segue reference="exE-36-k64"/>
-        <segue reference="2kG-rR-GNn"/>
+        <segue reference="oKE-ho-v9v"/>
         <segue reference="fU0-tI-cRZ"/>
     </inferredMetricsTieBreakers>
 </document>

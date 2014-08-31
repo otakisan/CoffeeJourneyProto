@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CJLEditorTableViewController: UITableViewController {
 
@@ -40,7 +41,7 @@ class CJLEditorTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: selector)
         
         if(self.memoId != nil){
-            
+            self.loadJourneyLogObject()
         }
         else{
             self.initializeViewData()
@@ -270,6 +271,7 @@ class CJLEditorTableViewController: UITableViewController {
         // データ項目が多くなってきた場合の対処方法
         if(self.existingCoffeeMemo == nil){
             self.existingCoffeeMemo = CoffeeMemoService.createEntity()
+            self.existingCoffeeMemo!.createdDate = NSDate()
         }
 
         self.existingCoffeeMemo!.memoId = self.memoIdCell.detailTextLabel.text
@@ -285,6 +287,7 @@ class CJLEditorTableViewController: UITableViewController {
         self.existingCoffeeMemo!.liquidusTemperature = self.liquidusTemperatureCell.detailTextLabel.text
         self.existingCoffeeMemo!.atmosphericTemperature = self.atmosphericTemperatureCell.detailTextLabel.text
         self.existingCoffeeMemo!.humidity = self.humidityCell.detailTextLabel.text
+        self.existingCoffeeMemo!.lastUpdatedDate = NSDate()
         
         CoffeeMemoService.getManagedObjectContext().save(nil)
         
@@ -292,6 +295,42 @@ class CJLEditorTableViewController: UITableViewController {
         println("Object Saved")
         
         ViewUtility.showMessageDialog(self, title: "log saved", message: "saved : \(self.existingCoffeeMemo!.memoId)")
+    }
+
+    private func loadJourneyLogObject(){
+        
+        var context : NSManagedObjectContext = CoffeeMemoService.getManagedObjectContext()
+        
+        var request = NSFetchRequest(entityName: "CoffeeMemoEntity")
+        request.returnsObjectsAsFaults = false
+        request.predicate = NSPredicate(format: "memoId = %@", self.memoId!)
+        
+        // TODO一意キー制約で制限しないと複数件返却されてしまう
+        var results : NSArray = context.executeFetchRequest(request, error: nil)
+        if(results.count > 0){
+            
+            var thisMemo = results[0] as CoffeeMemoEntity
+            self.memoIdCell.detailTextLabel.text = thisMemo.memoId
+            self.tastingDateCell.detailTextLabel.text = DateUtility.sharedInstance.toDisplayDateString(thisMemo.tastingDate)
+            self.beanNameCell.detailTextLabel.text = thisMemo.beanName
+            self.brewingMethodCell.detailTextLabel.text = thisMemo.brewingMethod
+            self.aromaCell.detailTextLabel.text = thisMemo.aroma
+            self.acidityCell.detailTextLabel.text = thisMemo.acidity
+            self.bodyCell.detailTextLabel.text = thisMemo.body
+            self.flavorCell.detailTextLabel.text = thisMemo.flavor
+            self.commentCell.detailTextLabel.text = thisMemo.comment
+            self.placeCell.detailTextLabel.text = thisMemo.place
+            self.liquidusTemperatureCell.detailTextLabel.text = thisMemo.liquidusTemperature
+            self.atmosphericTemperatureCell.detailTextLabel.text = thisMemo.atmosphericTemperature
+            self.humidityCell.detailTextLabel.text = thisMemo.humidity
+            
+            self.existingCoffeeMemo = thisMemo
+            
+            println("\(results.count) found")
+        }
+        else{
+            println("Not Found")
+        }
     }
 
     @IBAction func goToRoot(segue : UIStoryboardSegue)
