@@ -16,16 +16,14 @@ class StringUtility: NSObject {
         var joinedString = ""
         var isFirst = true
         for element in stringArray{
-//            if(element != nil){
-                if(!isFirst){
-                    joinedString += delimiter
-                }
-                else{
-                    isFirst = false
-                }
-                
-                joinedString += element!
-//            }
+            if(!isFirst){
+                joinedString += delimiter
+            }
+            else{
+                isFirst = false
+            }
+            
+            joinedString += element!
         }
         
         return joinedString

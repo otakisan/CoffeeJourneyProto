@@ -11,12 +11,9 @@ import UIKit
 class PickerViewController: UIViewController {
 
     @IBOutlet weak var pickerView: UIPickerView!
-    
     @IBOutlet weak var selectedItemTextField: UITextField!
-    var pickerViewItems : [String] = [
-//        "Willow Blend","Lightnote Blend","Breakfast Blend","Pike Place Roast","Guatemala Antigua","Kenya","House Blend","Ethiopia","Colombia","Sumatra","Komodo Dragon Blend","Decaf Komodo Dragon Blend","Caffe Verona","Espresso Roast","Italian Roast","French Roast","Anniversary Blend","Autumn Blend","Malawi Peaberry","Maui Mokka","Peru Chonti"
-    ]
     
+    var pickerViewItems : [String] = []
     var selectedItem : String = ""
     var tagString : String = ""
     

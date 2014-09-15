@@ -26,7 +26,7 @@ class JourneyLogEditorViewController: UIViewController {
     
     
     @IBAction func saveButtonTouchedUpInside(sender: AnyObject) {
-//        self.saveJourneyLog()
+
         self.saveJourneyLogObject()
         
         // ↓だと元の画面に戻らないので、UnwindSegueでやるっぽい
@@ -66,15 +66,6 @@ class JourneyLogEditorViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    private func getMemoId() -> String {
-//        var prefix = "CJL"
-//        var formatter = NSDateFormatter()
-//        formatter.dateFormat = "yyyyMMdd_HHmmss.SSS"
-//        var timestamp = formatter.stringFromDate(NSDate())
-//        
-//        return "\(prefix)_\(timestamp)"
-//    }
     
     private func getManagedObjectContext() -> NSManagedObjectContext {
         
@@ -177,13 +168,6 @@ class JourneyLogEditorViewController: UIViewController {
             self.commentTextField.text = thisMemo.comment
             
             self.existingCoffeeMemo = thisMemo
-
-//            for memo in results{
-//                var thisMemo = memo as CoffeeMemoEntity
-//                println("This memoId is \(thisMemo.memoId)")
-//                
-//                self.memoIdTextField.text = thisMemo.memoId
-//            }
             
             println("\(results.count) found")
         }

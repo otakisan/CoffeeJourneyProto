@@ -38,7 +38,7 @@ class CoffeeMemoContext: NSObject {
         var predicates : [NSPredicate] = []
     
         // TODO: 検索条件の型ごとに汎用的に一気に作れるようにしたい
-        // 今回はひとまず動作させてたいので、べた書きする
+        // 今回はひとまず動作させたいので、べた書きする
         if(condition.memoId != nil){
             predicates.append(NSPredicate(format: "memoId BEGINSWITH[c] %@", condition.memoId!))
         }

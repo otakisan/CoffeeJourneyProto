@@ -40,17 +40,8 @@ class DatePickerViewController: UIViewController {
         self.dateString = DateUtility.sharedInstance.toDisplayDateString(self.datePicker.date)
     }
 
-//    @IBAction func unwind(sender: UIStoryboardSegue) {
-//        // ↓を実行すると戻るけど、ダイアログが表示されない
-//        self.navigationController.popViewControllerAnimated(true)
-//    }
-    
-
     func didDoneButton(sender : AnyObject){
-//        self.navigationController.popViewControllerAnimated(true)
-//        self.navigationController.dismissViewControllerAnimated(true, completion: nil)
-        
-//        SEL theUnwindSelector = @selector(goToRoot:);
+
         var unwindSegueIdentifier : String = "unwindToRootSeque"
         
         var nc : UINavigationController = self.navigationController
