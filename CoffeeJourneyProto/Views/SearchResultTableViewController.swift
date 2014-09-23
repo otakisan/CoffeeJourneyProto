@@ -16,8 +16,10 @@ class SearchResultTableViewController: UITableViewController {
     var searchResult : [CoffeeMemoEntity] = []
     var fetchLimit : Int = 0
     
+    // 使用する定数を切り替えることで、V1とV2を切り替える
 //    let showLogEditorSegueId = "showJourneyLogEditorSegue"
     let showLogEditorSegueId = "showJourneyLogEditorV2Segue"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

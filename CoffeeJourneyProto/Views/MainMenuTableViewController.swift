@@ -24,24 +24,12 @@ class MainMenuTableViewController: UITableViewController, UITableViewDelegate, U
     // メニューデータをオブジェクト化するか、他の仕組みで効率的に保持できるか。
     // 型を明示的に指定しないとNSArray扱いになり、appendが見えなくなる
     var menuData : [[String : String]] = []
-//    let menuData = [
-//        ["title" : "Recent Entries", "segueId" : "showSearchResultEntries"],
-//        ["title" : "Search", "segueId" : "showSearchConditionSegue"],
-//        ["title" : "New Entry", "segueId" : "showJourneyLogEditorSegue"],
-//        ["title" : "CJL Editor Ver.2", "segueId" : "showCJLEditorV2Segue"]
-//    ]
-    
-//    let prepareMethod = [
-//        "" : prepareForNewEntry
-//    ]
     
     private func InitializeInstance(){
-        
         self.menuData.append(["title" : "Recent Entries", "segueId" : segueIdRecentEntries])
         self.menuData.append(["title" : "Search", "segueId" : segueIdSearchCondition])
         self.menuData.append(["title" : "New Entry", "segueId" : segueIdNewEntry])
         self.menuData.append(["title" : "CJL Editor Ver.2", "segueId" : segueIdNewEntryV2])
-        
     }
     
     override init(style: UITableViewStyle) {
