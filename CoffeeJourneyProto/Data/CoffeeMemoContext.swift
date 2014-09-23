@@ -97,7 +97,7 @@ class CoffeeMemoContext: NSObject {
         request.sortDescriptors = [NSSortDescriptor(key: "tastingDate", ascending: false)]
         
         // 検索
-        var results : NSArray = sharedInstance.executeFetchRequest(request, error: nil)
+        var results : NSArray = sharedInstance.executeFetchRequest(request, error: nil)!
         
         return results as [CoffeeMemoEntity]
     }

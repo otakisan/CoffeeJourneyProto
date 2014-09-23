@@ -39,7 +39,7 @@ class PickerViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         self.selectedItem = self.selectedItemTextField.text
@@ -52,11 +52,11 @@ class PickerViewController: UIViewController {
 }
 
 extension PickerViewController : UIPickerViewDataSource {
-    func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int {
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) -> Int{
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
         return pickerViewItems.count
     }
 }

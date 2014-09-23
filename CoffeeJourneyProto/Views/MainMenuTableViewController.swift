@@ -49,7 +49,7 @@ class MainMenuTableViewController: UITableViewController, UITableViewDelegate, U
         InitializeInstance()
     }
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         InitializeInstance()
     }
@@ -88,26 +88,25 @@ class MainMenuTableViewController: UITableViewController, UITableViewDelegate, U
 //        return 0
 //    }
 
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return menuData.count
     }
 
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // StoryBoard上でセルにreuseIdentifierを設定しておく必要あり
         var cell = tableView.dequeueReusableCellWithIdentifier(self.defaultTableViewCellIdentifier, forIndexPath: indexPath) as DefaultMainMenuTableViewCell
         
         // Configure the cell...
         var cellData = self.menuData[indexPath.row] as NSDictionary
-        cell.textLabel.text = cellData.valueForKey("title") as String
+        cell.textLabel!.text = cellData.valueForKey("title") as? String
 
         return cell
     }
     
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
@@ -143,7 +142,7 @@ class MainMenuTableViewController: UITableViewController, UITableViewDelegate, U
     }
     */
 
-    override func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath:NSIndexPath!) {
+    override func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         
         self.performSegueWithIdentifier((self.menuData[indexPath.row] as NSDictionary).valueForKey("segueId") as String, sender: self)
     }
@@ -151,7 +150,7 @@ class MainMenuTableViewController: UITableViewController, UITableViewDelegate, U
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         

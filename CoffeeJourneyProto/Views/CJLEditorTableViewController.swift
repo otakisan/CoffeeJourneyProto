@@ -55,19 +55,19 @@ class CJLEditorTableViewController: UITableViewController {
 
     func initializeViewData(){
         
-        self.memoIdCell.detailTextLabel.text = CoffeeMemoService.getMemoId()
-        self.tastingDateCell.detailTextLabel.text = DateUtility.sharedInstance.toDisplayDateString(NSDate())
-        self.beanNameCell.detailTextLabel.text = nodataString
-        self.brewingMethodCell.detailTextLabel.text = nodataString
-        self.aromaCell.detailTextLabel.text = nodataString
-        self.acidityCell.detailTextLabel.text = nodataString
-        self.bodyCell.detailTextLabel.text = nodataString
-        self.flavorCell.detailTextLabel.text = nodataString
-        self.commentCell.detailTextLabel.text = nodataString
-        self.placeCell.detailTextLabel.text = nodataString
-        self.liquidusTemperatureCell.detailTextLabel.text = nodataString
-        self.atmosphericTemperatureCell.detailTextLabel.text = nodataString
-        self.humidityCell.detailTextLabel.text = nodataString
+        self.memoIdCell.detailTextLabel!.text = CoffeeMemoService.getMemoId()
+        self.tastingDateCell.detailTextLabel!.text = DateUtility.sharedInstance.toDisplayDateString(NSDate())
+        self.beanNameCell.detailTextLabel!.text = nodataString
+        self.brewingMethodCell.detailTextLabel!.text = nodataString
+        self.aromaCell.detailTextLabel!.text = nodataString
+        self.acidityCell.detailTextLabel!.text = nodataString
+        self.bodyCell.detailTextLabel!.text = nodataString
+        self.flavorCell.detailTextLabel!.text = nodataString
+        self.commentCell.detailTextLabel!.text = nodataString
+        self.placeCell.detailTextLabel!.text = nodataString
+        self.liquidusTemperatureCell.detailTextLabel!.text = nodataString
+        self.atmosphericTemperatureCell.detailTextLabel!.text = nodataString
+        self.humidityCell.detailTextLabel!.text = nodataString
         
     }
     // MARK: - Table view data source
@@ -129,7 +129,7 @@ class CJLEditorTableViewController: UITableViewController {
     }
     */
     
-    override func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath:NSIndexPath!) {
+    override func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         
 //        switch(indexPath.row){
 //        case 2:
@@ -143,13 +143,13 @@ class CJLEditorTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
         // 種類ごとに処理は決まってくるので、Dictionaryなんかを使ってまとめられるけど、
         // しばらく個別に処理して、それでも汎用化できそうであればする。
-        switch segue.identifier! {
+        switch segue.identifier {
             
         case "showTastingDateViewSegue":
             var destView = segue.destinationViewController as DatePickerViewController
@@ -161,69 +161,69 @@ class CJLEditorTableViewController: UITableViewController {
             pickerView.pickerViewItems = [
                 "Willow Blend","Lightnote Blend","Breakfast Blend","Pike Place Roast","Guatemala Antigua","Kenya","House Blend","Ethiopia","Colombia","Sumatra","Komodo Dragon Blend","Decaf Komodo Dragon Blend","Caffe Verona","Espresso Roast","Italian Roast","French Roast","Anniversary Blend","Autumn Blend","Malawi Peaberry","Maui Mokka","Peru Chonti"
             ]
-            pickerView.selectedItem = self.beanNameCell.detailTextLabel.text
+            pickerView.selectedItem = self.beanNameCell.detailTextLabel!.text!
         case "showMethodPickerViewSegue":
             var pickerView = segue.destinationViewController as PickerViewController
             pickerView.tagString = "brewingMethodCell"
             pickerView.pickerViewItems = [
                 "Drip(Machine)", "French Press", "Espresso", "Pour Over", "Instant"
             ]
-            pickerView.selectedItem = self.brewingMethodCell.detailTextLabel.text
+            pickerView.selectedItem = self.brewingMethodCell.detailTextLabel!.text!
         case "showAcidityPickerViewSegue":
             var pickerView = segue.destinationViewController as PickerViewController
             pickerView.tagString = "acidityCell"
             pickerView.pickerViewItems = [
                 "High", "Medium", "Low"
             ]
-            pickerView.selectedItem = self.acidityCell.detailTextLabel.text
+            pickerView.selectedItem = self.acidityCell.detailTextLabel!.text!
         case "showBodyPickerViewSegue":
             var pickerView = segue.destinationViewController as PickerViewController
             pickerView.tagString = "bodyCell"
             pickerView.pickerViewItems = [
                 "Full", "Medium", "Light"
             ]
-            pickerView.selectedItem = self.bodyCell.detailTextLabel.text
+            pickerView.selectedItem = self.bodyCell.detailTextLabel!.text!
         case "showFlavorPickerViewSegue":
             var pickerView = segue.destinationViewController as PickerViewController
             pickerView.tagString = "flavorCell"
             pickerView.pickerViewItems = [
                 "Bright", "Complex", "Crisp", "Herbal", "Spicy", "Dark Cocoa", "Citrus"
             ]
-            pickerView.selectedItem = self.flavorCell.detailTextLabel.text
+            pickerView.selectedItem = self.flavorCell.detailTextLabel!.text!
         case "showLiquidusTemperaturePickerViewSegue":
             var pickerView = segue.destinationViewController as PickerViewController
             pickerView.tagString = "liquidusTemperatureCell"
             pickerView.pickerViewItems = [
                 "Very Hot", "Hot", "Light Hot", "Lukewarm", "Cold", "Very Cold"
             ]
-            pickerView.selectedItem = self.liquidusTemperatureCell.detailTextLabel.text
+            pickerView.selectedItem = self.liquidusTemperatureCell.detailTextLabel!.text!
         case "showAtmosphericTemperaturePickerViewSegue":
             var pickerView = segue.destinationViewController as PickerViewController
             pickerView.tagString = "atmosphericTemperatureCell"
             pickerView.pickerViewItems = [
                 "More Than 30", "28-30", "26-28", "24-26", "22-24", "20-22", "18-20", "16-18", "14-16", "12-14", "10-12", "Less Than 10"
             ]
-            pickerView.selectedItem = self.atmosphericTemperatureCell.detailTextLabel.text
+            pickerView.selectedItem = self.atmosphericTemperatureCell.detailTextLabel!.text!
         case "showHumidityPickerViewSegue":
             var pickerView = segue.destinationViewController as PickerViewController
             pickerView.tagString = "humidityCell"
             pickerView.pickerViewItems = [
                 "100", "90", "80", "70", "60", "50", "40", "30", "20", "10", "0"
             ]
-            pickerView.selectedItem = self.humidityCell.detailTextLabel.text
+            pickerView.selectedItem = self.humidityCell.detailTextLabel!.text!
             
         case "showAromaTextViewSegue":
             var textView = segue.destinationViewController as TextViewController
             textView.tagString = "aromaCell"
-            textView.inputText = self.aromaCell.detailTextLabel.text
+            textView.inputText = self.aromaCell.detailTextLabel!.text!
         case "showCommentTextViewSegue":
             var textView = segue.destinationViewController as TextViewController
             textView.tagString = "commentCell"
-            textView.inputText = self.commentCell.detailTextLabel.text
+            textView.inputText = self.commentCell.detailTextLabel!.text!
         case "showPlaceTextViewSegue":
             var textView = segue.destinationViewController as TextViewController
             textView.tagString = "placeCell"
-            textView.inputText = self.placeCell.detailTextLabel.text
+            textView.inputText = self.placeCell.detailTextLabel!.text!
             
         default:
             break
@@ -242,24 +242,24 @@ class CJLEditorTableViewController: UITableViewController {
     
     @IBAction func datePickerViewReturnActionForSegue(segue : UIStoryboardSegue)
     {
-        NSLog(segue.sourceViewController.title)
+        NSLog(segue.sourceViewController.title!!)
         NSLog("First view return action invoked.")
         
         var dateView = segue.sourceViewController as DatePickerViewController
         var cell : UITableViewCell = self.valueForKey(dateView.tagString) as UITableViewCell
-        cell.detailTextLabel.text = dateView.dateString
+        cell.detailTextLabel!.text = dateView.dateString
     }
     
     @IBAction func pickerViewReturnActionForSegue(segue : UIStoryboardSegue){
         var pickerView = segue.sourceViewController as PickerViewController
         var cell : UITableViewCell = self.valueForKey(pickerView.tagString) as UITableViewCell
-        cell.detailTextLabel.text = pickerView.selectedItem
+        cell.detailTextLabel!.text = pickerView.selectedItem
     }
     
     @IBAction func textViewReturnActionForSegue(segue : UIStoryboardSegue){
         var textView = segue.sourceViewController as TextViewController
         var cell : UITableViewCell = self.valueForKey(textView.tagString) as UITableViewCell
-        cell.detailTextLabel.text = textView.inputText
+        cell.detailTextLabel!.text = textView.inputText
     }
     
     func didDoneButton(sender : AnyObject){
@@ -274,19 +274,19 @@ class CJLEditorTableViewController: UITableViewController {
             self.existingCoffeeMemo!.createdDate = NSDate()
         }
 
-        self.existingCoffeeMemo!.memoId = self.memoIdCell.detailTextLabel.text
-        self.existingCoffeeMemo!.tastingDate = DateUtility.sharedInstance.toDateFromDisplayString(self.tastingDateCell.detailTextLabel.text)
-        self.existingCoffeeMemo!.beanName = self.beanNameCell.detailTextLabel.text
-        self.existingCoffeeMemo!.brewingMethod = self.brewingMethodCell.detailTextLabel.text
-        self.existingCoffeeMemo!.aroma = self.aromaCell.detailTextLabel.text
-        self.existingCoffeeMemo!.acidity = self.acidityCell.detailTextLabel.text
-        self.existingCoffeeMemo!.body = self.bodyCell.detailTextLabel.text
-        self.existingCoffeeMemo!.flavor = self.flavorCell.detailTextLabel.text
-        self.existingCoffeeMemo!.comment = self.commentCell.detailTextLabel.text
-        self.existingCoffeeMemo!.place = self.placeCell.detailTextLabel.text
-        self.existingCoffeeMemo!.liquidusTemperature = self.liquidusTemperatureCell.detailTextLabel.text
-        self.existingCoffeeMemo!.atmosphericTemperature = self.atmosphericTemperatureCell.detailTextLabel.text
-        self.existingCoffeeMemo!.humidity = self.humidityCell.detailTextLabel.text
+        self.existingCoffeeMemo!.memoId = self.memoIdCell.detailTextLabel!.text!
+        self.existingCoffeeMemo!.tastingDate = DateUtility.sharedInstance.toDateFromDisplayString(self.tastingDateCell!.detailTextLabel!.text!)
+        self.existingCoffeeMemo!.beanName = self.beanNameCell.detailTextLabel!.text!
+        self.existingCoffeeMemo!.brewingMethod = self.brewingMethodCell.detailTextLabel!.text!
+        self.existingCoffeeMemo!.aroma = self.aromaCell.detailTextLabel!.text!
+        self.existingCoffeeMemo!.acidity = self.acidityCell.detailTextLabel!.text!
+        self.existingCoffeeMemo!.body = self.bodyCell.detailTextLabel!.text!
+        self.existingCoffeeMemo!.flavor = self.flavorCell.detailTextLabel!.text!
+        self.existingCoffeeMemo!.comment = self.commentCell.detailTextLabel!.text!
+        self.existingCoffeeMemo!.place = self.placeCell.detailTextLabel!.text!
+        self.existingCoffeeMemo!.liquidusTemperature = self.liquidusTemperatureCell.detailTextLabel!.text!
+        self.existingCoffeeMemo!.atmosphericTemperature = self.atmosphericTemperatureCell.detailTextLabel!.text!
+        self.existingCoffeeMemo!.humidity = self.humidityCell.detailTextLabel!.text!
         self.existingCoffeeMemo!.lastUpdatedDate = NSDate()
         
         CoffeeMemoService.getManagedObjectContext().save(nil)
@@ -306,23 +306,23 @@ class CJLEditorTableViewController: UITableViewController {
         request.predicate = NSPredicate(format: "memoId = %@", self.memoId!)
         
         // TODO一意キー制約で制限しないと複数件返却されてしまう
-        var results : NSArray = context.executeFetchRequest(request, error: nil)
+        var results : NSArray = context.executeFetchRequest(request, error: nil)!
         if(results.count > 0){
             
             var thisMemo = results[0] as CoffeeMemoEntity
-            self.memoIdCell.detailTextLabel.text = thisMemo.memoId
-            self.tastingDateCell.detailTextLabel.text = DateUtility.sharedInstance.toDisplayDateString(thisMemo.tastingDate)
-            self.beanNameCell.detailTextLabel.text = thisMemo.beanName
-            self.brewingMethodCell.detailTextLabel.text = thisMemo.brewingMethod
-            self.aromaCell.detailTextLabel.text = thisMemo.aroma
-            self.acidityCell.detailTextLabel.text = thisMemo.acidity
-            self.bodyCell.detailTextLabel.text = thisMemo.body
-            self.flavorCell.detailTextLabel.text = thisMemo.flavor
-            self.commentCell.detailTextLabel.text = thisMemo.comment
-            self.placeCell.detailTextLabel.text = thisMemo.place
-            self.liquidusTemperatureCell.detailTextLabel.text = thisMemo.liquidusTemperature
-            self.atmosphericTemperatureCell.detailTextLabel.text = thisMemo.atmosphericTemperature
-            self.humidityCell.detailTextLabel.text = thisMemo.humidity
+            self.memoIdCell.detailTextLabel!.text = thisMemo.memoId
+            self.tastingDateCell.detailTextLabel!.text = DateUtility.sharedInstance.toDisplayDateString(thisMemo.tastingDate)
+            self.beanNameCell.detailTextLabel!.text = thisMemo.beanName
+            self.brewingMethodCell.detailTextLabel!.text = thisMemo.brewingMethod
+            self.aromaCell.detailTextLabel!.text = thisMemo.aroma
+            self.acidityCell.detailTextLabel!.text = thisMemo.acidity
+            self.bodyCell.detailTextLabel!.text = thisMemo.body
+            self.flavorCell.detailTextLabel!.text = thisMemo.flavor
+            self.commentCell.detailTextLabel!.text = thisMemo.comment
+            self.placeCell.detailTextLabel!.text = thisMemo.place
+            self.liquidusTemperatureCell.detailTextLabel!.text = thisMemo.liquidusTemperature
+            self.atmosphericTemperatureCell.detailTextLabel!.text = thisMemo.atmosphericTemperature
+            self.humidityCell.detailTextLabel!.text = thisMemo.humidity
             
             self.existingCoffeeMemo = thisMemo
             

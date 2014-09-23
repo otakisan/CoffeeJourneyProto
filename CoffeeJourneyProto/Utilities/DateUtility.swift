@@ -34,7 +34,7 @@ class DateUtility : NSObject {
     }
     
     func toDate(dateString : String!) -> NSDate {
-        return dateFormatter.dateFromString(dateString)
+        return dateFormatter.dateFromString(dateString)!
     }
     
     func toDateString(date : NSDate!) -> String {
@@ -54,19 +54,19 @@ class DateUtility : NSObject {
     
     // 日付⇄文字列の変換なんてのは、あらゆるところで必要になる
     // 王道の処理方式ってのはないんだろうか
-    func toDateFromDisplayString(dateString : String) -> NSDate {
+    func toDateFromDisplayString(dateString : String!) -> NSDate {
         
         // 受け入れ可能なフォーマットが実は固定な仕様になっている
         var date : NSDate = NSDate()
         if(dateString != nil && dateString != ""){
             let dateFormatter = createDisplayDateFormatter()
-            date = dateFormatter.dateFromString(dateString)
+            date = dateFormatter.dateFromString(dateString)!
         }
         
         return date
     }
     
-    func toDisplayDateString(date : NSDate) -> String {
+    func toDisplayDateString(date : NSDate!) -> String {
         
         var dateString : String = ""
         if(date != nil){

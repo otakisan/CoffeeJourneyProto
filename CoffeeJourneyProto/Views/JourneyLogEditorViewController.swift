@@ -41,7 +41,7 @@ class JourneyLogEditorViewController: UIViewController {
     
     @IBAction func unwind(sender: UIStoryboardSegue) {
         // ↓を実行すると戻るけど、ダイアログが表示されない
-        self.navigationController.popViewControllerAnimated(true)
+//        self.navigationController.popViewControllerAnimated(true)
     }
     
     override func viewDidLoad() {
@@ -103,7 +103,7 @@ class JourneyLogEditorViewController: UIViewController {
         
         // データ項目が多くなってきた場合の対処方法
         if(self.existingCoffeeMemo == nil){
-            self.existingCoffeeMemo = CoffeeMemoEntity(entity: ent, insertIntoManagedObjectContext: context)
+            self.existingCoffeeMemo = CoffeeMemoEntity(entity: ent!, insertIntoManagedObjectContext: context)
         }
         else{
             
@@ -143,7 +143,7 @@ class JourneyLogEditorViewController: UIViewController {
         // 条件
         request.predicate = NSPredicate(format: "memoId = %@", "test memo id")
         
-        var results : NSArray = context.executeFetchRequest(request, error: nil)
+        var results : NSArray = context.executeFetchRequest(request, error: nil)!
         
         if(results.count > 0){
             
@@ -168,7 +168,7 @@ class JourneyLogEditorViewController: UIViewController {
         request.predicate = NSPredicate(format: "memoId = %@", self.memoId!)
         
         // TODO一意キー制約で制限しないと複数件返却されてしまう
-        var results : NSArray = context.executeFetchRequest(request, error: nil)
+        var results : NSArray = context.executeFetchRequest(request, error: nil)!
         if(results.count > 0){
             
             var thisMemo = results[0] as CoffeeMemoEntity
@@ -206,12 +206,12 @@ class JourneyLogEditorViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
     
-    override func canPerformUnwindSegueAction(action: Selector, fromViewController: UIViewController!, withSender sender: AnyObject!) -> Bool {
+    override func canPerformUnwindSegueAction(action: Selector, fromViewController: UIViewController, withSender sender: AnyObject) -> Bool {
         
         return true
     }

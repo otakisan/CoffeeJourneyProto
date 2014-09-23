@@ -37,30 +37,31 @@ class SearchResultTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
 
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return self.searchResult.count
     }
 
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseSearchResultCellIdentifier", forIndexPath: indexPath) as UITableViewCell
 
         // detailはcellのタイプをsubtitleにしておく必要がある
-        cell.textLabel.text = self.searchResult[indexPath.row].comment
+        cell.textLabel!.text = self.searchResult[indexPath.row].comment
         
         var dateForSubtitle = DateUtility.sharedInstance.toSubtitleDateString(self.searchResult[indexPath.row].tastingDate)
-        cell.detailTextLabel.text = dateForSubtitle + " " + self.searchResult[indexPath.row].beanName + ", " + self.searchResult[indexPath.row].brewingMethod + ", " + self.searchResult[indexPath.row].place
+        cell.detailTextLabel!.text = dateForSubtitle + " " + self.searchResult[indexPath.row].beanName + ", " + self.searchResult[indexPath.row].brewingMethod + ", " + self.searchResult[indexPath.row].place
         
         return cell
     }
+    
     
 
     /*
@@ -73,7 +74,7 @@ class SearchResultTableViewController: UITableViewController {
 
     
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             
             // 先に行数の元となる配列から要素を削除し、numberOfRowsInSectionで削除後の行数を返却するようにする
@@ -109,7 +110,7 @@ class SearchResultTableViewController: UITableViewController {
     }
     */
 
-    override func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath:NSIndexPath!) {
+    override func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         
         self.performSegueWithIdentifier(showLogEditorSegueId, sender: self)
     }
@@ -118,17 +119,17 @@ class SearchResultTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        switch segue.identifier! {
+        switch segue.identifier {
             case "showJourneyLogEditorSegue":
                 var vc = segue.destinationViewController as JourneyLogEditorViewController
-                vc.memoId = self.searchResult[self.tableView.indexPathForSelectedRow().row].memoId
+                vc.memoId = self.searchResult[self.tableView.indexPathForSelectedRow()!.row].memoId
         case "showJourneyLogEditorV2Segue":
             var vc = segue.destinationViewController as CJLEditorTableViewController
-            vc.memoId = self.searchResult[self.tableView.indexPathForSelectedRow().row].memoId
+            vc.memoId = self.searchResult[self.tableView.indexPathForSelectedRow()!.row].memoId
         default:
             break
         }

@@ -33,7 +33,7 @@ class DatePickerViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
@@ -53,16 +53,16 @@ class DatePickerViewController: UIViewController {
 //        SEL theUnwindSelector = @selector(goToRoot:);
         var unwindSegueIdentifier : String = "unwindToRootSeque"
         
-        var nc : UINavigationController = self.navigationController
+        var nc : UINavigationController = self.navigationController!
         // Find the view controller that has this unwindAction selector (may not be one in the nav stack)
         var selector : Selector = "goToRoot:"
         var viewControllerToCallUnwindSelectorOn : UIViewController =
-            nc.viewControllerForUnwindSegueAction(selector, fromViewController: self, withSender: sender)
+            nc.viewControllerForUnwindSegueAction(selector, fromViewController: self, withSender: sender)!
         // None found, then do nothing.
-        if (viewControllerToCallUnwindSelectorOn == nil) {
-            NSLog("No controller found to unwind too")
-            return;
-        }
+//        if (viewControllerToCallUnwindSelectorOn == nil) {
+//            NSLog("No controller found to unwind too")
+//            return;
+//        }
         
         // Can the controller that we found perform the unwind segue.  (This is decided by that controllers implementation of canPerformSeque: method
         var cps = viewControllerToCallUnwindSelectorOn.canPerformUnwindSegueAction(selector,

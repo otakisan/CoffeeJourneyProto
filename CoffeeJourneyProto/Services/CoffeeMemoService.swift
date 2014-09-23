@@ -32,7 +32,7 @@ class CoffeeMemoService: NSObject {
         var context : NSManagedObjectContext = CoffeeMemoService.getManagedObjectContext()
         let ent = NSEntityDescription.entityForName("CoffeeMemoEntity", inManagedObjectContext: context)
         
-        return CoffeeMemoEntity(entity: ent, insertIntoManagedObjectContext: context)
+        return CoffeeMemoEntity(entity: ent!, insertIntoManagedObjectContext: context)
     }
    
 }
