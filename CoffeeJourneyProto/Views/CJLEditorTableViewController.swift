@@ -149,7 +149,7 @@ class CJLEditorTableViewController: UITableViewController {
         
         // 種類ごとに処理は決まってくるので、Dictionaryなんかを使ってまとめられるけど、
         // しばらく個別に処理して、それでも汎用化できそうであればする。
-        switch segue.identifier {
+        switch segue.identifier! {
             
         case "showTastingDateViewSegue":
             var destView = segue.destinationViewController as DatePickerViewController

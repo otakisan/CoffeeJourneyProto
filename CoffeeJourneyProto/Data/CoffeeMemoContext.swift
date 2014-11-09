@@ -40,43 +40,43 @@ class CoffeeMemoContext: NSObject {
         // TODO: 検索条件の型ごとに汎用的に一気に作れるようにしたい
         // 今回はひとまず動作させたいので、べた書きする
         if(condition.memoId != nil){
-            predicates.append(NSPredicate(format: "memoId BEGINSWITH[c] %@", condition.memoId!))
+            predicates.append(NSPredicate(format: "memoId BEGINSWITH[c] %@", condition.memoId!)!)
         }
         
         if(condition.fromTastingDate != nil){
-            predicates.append(NSPredicate(format: "tastingDate >= %@", condition.fromTastingDate!))
+            predicates.append(NSPredicate(format: "tastingDate >= %@", condition.fromTastingDate!)!)
         }
         
         if(condition.toTastingDate != nil){
-            predicates.append(NSPredicate(format: "tastingDate <= %@", condition.toTastingDate!))
+            predicates.append(NSPredicate(format: "tastingDate <= %@", condition.toTastingDate!)!)
         }
 
         if(condition.beanName != nil){
-            predicates.append(NSPredicate(format: "beanName ==[c] %@", condition.beanName!))
+            predicates.append(NSPredicate(format: "beanName ==[c] %@", condition.beanName!)!)
         }
         
         if(condition.brewingMethod != nil){
-            predicates.append(NSPredicate(format: "brewingMethod ==[c] %@", condition.brewingMethod!))
+            predicates.append(NSPredicate(format: "brewingMethod ==[c] %@", condition.brewingMethod!)!)
         }
 
         if(condition.aroma != nil){
-            predicates.append(NSPredicate(format: "aroma CONTAINS[c] %@", condition.aroma!))
+            predicates.append(NSPredicate(format: "aroma CONTAINS[c] %@", condition.aroma!)!)
         }
 
         if(condition.acidity != nil){
-            predicates.append(NSPredicate(format: "acidity CONTAINS[c] %@", condition.acidity!))
+            predicates.append(NSPredicate(format: "acidity CONTAINS[c] %@", condition.acidity!)!)
         }
         
         if(condition.body != nil){
-            predicates.append(NSPredicate(format: "body CONTAINS[c] %@", condition.body!))
+            predicates.append(NSPredicate(format: "body CONTAINS[c] %@", condition.body!)!)
         }
         
         if(condition.flavor != nil){
-            predicates.append(NSPredicate(format: "flavor CONTAINS[c] %@", condition.flavor!))
+            predicates.append(NSPredicate(format: "flavor CONTAINS[c] %@", condition.flavor!)!)
         }
         
         if(condition.comment != nil){
-            predicates.append(NSPredicate(format: "comment CONTAINS[c] %@", condition.comment!))
+            predicates.append(NSPredicate(format: "comment CONTAINS[c] %@", condition.comment!)!)
         }
         
         var predicate = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: predicates)

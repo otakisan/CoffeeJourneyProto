@@ -56,7 +56,7 @@ class SearchResultTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseSearchResultCellIdentifier", forIndexPath: indexPath) as UITableViewCell
 
         // detailはcellのタイプをsubtitleにしておく必要がある
-        cell.textLabel!.text = self.searchResult[indexPath.row].comment
+        cell.textLabel.text = self.searchResult[indexPath.row].comment
         
         var dateForSubtitle = DateUtility.sharedInstance.toSubtitleDateString(self.searchResult[indexPath.row].tastingDate)
         cell.detailTextLabel!.text = dateForSubtitle + " " + self.searchResult[indexPath.row].beanName + ", " + self.searchResult[indexPath.row].brewingMethod + ", " + self.searchResult[indexPath.row].place
@@ -125,7 +125,7 @@ class SearchResultTableViewController: UITableViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        switch segue.identifier {
+        switch segue.identifier! {
             case "showJourneyLogEditorSegue":
                 var vc = segue.destinationViewController as JourneyLogEditorViewController
                 vc.memoId = self.searchResult[self.tableView.indexPathForSelectedRow()!.row].memoId

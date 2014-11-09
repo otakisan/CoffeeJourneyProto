@@ -90,7 +90,7 @@ class MainMenuTableViewController: UITableViewController, UITableViewDelegate, U
         
         // Configure the cell...
         var cellData = self.menuData[indexPath.row] as NSDictionary
-        cell.textLabel!.text = cellData.valueForKey("title") as? String
+        cell.textLabel.text = cellData.valueForKey("title") as? String
 
         return cell
     }
@@ -132,7 +132,7 @@ class MainMenuTableViewController: UITableViewController, UITableViewDelegate, U
 
     override func tableView(tableView: UITableView?, didSelectRowAtIndexPath indexPath:NSIndexPath) {
         
-        self.performSegueWithIdentifier((self.menuData[indexPath.row] as NSDictionary).valueForKey("segueId") as String, sender: self)
+        self.performSegueWithIdentifier((self.menuData[indexPath.row] as NSDictionary).valueForKey("segueId") as? String, sender: self)
     }
     
     // MARK: - Navigation
@@ -142,7 +142,7 @@ class MainMenuTableViewController: UITableViewController, UITableViewDelegate, U
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        switch(segue.identifier){
+        switch(segue.identifier!){
         case self.segueIdRecentEntries:
             self.prepareForRecentEntries(segue, sender: sender)
         case self.segueIdSearchCondition:
